@@ -59,12 +59,14 @@ prediction.y; //now always in the bounds of the viewport
 
 
 download instructions:
-# Ensure NodeJS is downloaded: https://nodejs.org/en/download/
+#Ensure NodeJS is downloaded: https://nodejs.org/en/download/
+
 npm install -g grunt-cli
 git clone https://github.com/brownhci/WebGazer.git
 cd WebGazer
 npm install
-# Run grunt to build the webgazer.js file in the build directory
+
+#Run grunt to build the webgazer.js file in the build directory
 grunt
 
 more detail should be found on github: https://github.com/brownhci/WebGazer
