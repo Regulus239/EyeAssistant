@@ -4,57 +4,36 @@ Main frame of webcam: https://webgazer.cs.brown.edu with webgaze (established by
 Demo of tobii eyetracker: https://tobiigaming.com/software/ghost/
 The usage of Thunderbird and Visualstudio C# Windows Presentation Foundation: About to finish
 
-
-
-Usage of WebGazer
-To use WebGazer.js you need to add the webgazer.js file as a script in your website:
-
-<script src="webgazer.js" type="text/javascript" >
-Be aware that when you do local development and you might need to run locally a simple http server that supports the https protocol.
-
-
-webgazer.setGazeListener(function(data, elapsedTime) {
-if (data == null) {
-return;
-}
-var xprediction = data.x; //these x coordinates are relative to the viewport
-var yprediction = data.y; //these y coordinates are relative to the viewport
-console.log(elapsedTime); //elapsed time is based on time since begin was called
-}).begin();
-
-Here is the alternate method of getting predictions where you can request a gaze prediction as needed.
-
-var prediction = webgazer.getCurrentPrediction();
-if (prediction) {
-var x = prediction.x;
-var y = prediction.y;
-}
-
-Advanced Usage
-There are several features that WebGazer.js enables beyond the example shown so far.
-
 Saving Data Between Sessions
 
-WebGazer.js can save and restore the training data between browser sessions by storing data to localstorage. This occurs automatically when end() is called. If you want each user session to be independent make sure that you do not call the end() function.
+WebGazer.js can save and restore the training data between browser sessions by storing data to localstorage. This occurs
+automatically when end() is called. If you want each user session to be independent make sure that you do not call the end() 
+function.
 
 webgazer.end()
 Changing in Use Regression and Tracker Modules
 
-At the heart of WebGazer.js are the tracker and regression modules. The tracker module controls how eyes are detected and the regression module determines how the regression model is learned and how predictions are made based on the eye patches extracted from the tracker module. These modules can be swapped in and out at any time. We hope that this will make it easy to extend and adapt WebGazer.js and welcome any developers that want to contribute.
+At the heart of WebGazer.js are the tracker and regression modules. The tracker module controls how eyes are detected and the 
+regression module determines how the regression model is learned and how predictions are made based on the eye patches 
+extracted from the tracker module. These modules can be swapped in and out at any time. We hope that this will make it easy to 
+extend and adapt WebGazer.js and welcome any developers that want to contribute.
 
-WebGazer.js requires the bounding box that includes the pixels from the webcam video feed that correspond to the detected eyes of the user. Currently we include three external libraries that implement different Computer Vision algorithms to detect the face and eyes.
+WebGazer.js requires the bounding box that includes the pixels from the webcam video feed that correspond to the detected eyes 
+of the user. Currently we include three external libraries that implement different Computer Vision algorithms to detect the 
+face and eyes.
 
 webgazer.setTracker("clmtrackr"); //set a tracker module
 webgazer.addTrackerModule("newTracker", NewTrackerConstructor); //add a new tracker module
-Here are all the external tracker modules that come by default with WebGazer.js. Let us know if you want to introduce your own facial feature detection library.
+Here are all the external tracker modules that come by default with WebGazer.js. Let us know if you want to introduce your own 
+facial feature detection library.
 
 clmtrackr
 js_objectdetect
 tracking.js
-
 webgazer.setRegression("ridge"); //set a regression module
 webgazer.addRegressionModule("newReg", NewRegConstructor); //add a new regression module
-Here are all the regression modules that come by default with WebGazer.js. Let us know if you would like introduce different modules - just keep in mind that they should be able to produce predictions very fast.
+Here are all the regression modules that come by default with WebGazer.js. Let us know if you would like introduce different 
+modules - just keep in mind that they should be able to produce predictions very fast.
 
 ridge - a simple ridge regression model mapping pixels from the detected eyes to locations on the screen.
 weightedRidge - a weight ridge regression model with newest user interactions contribution more to the model.
@@ -70,7 +49,8 @@ webgazer.resume(); //data collection resumes, gaze callback will be called again
 
 Util and Params
 
-We provide some useful functions and objects in webgazer.util. The webgazer.params object also contains some useful parameters to tweak to control video fidelity (trades off speed and accuracy) and sample rate for mouse movements.
+We provide some useful functions and objects in webgazer.util. The webgazer.params object also contains some useful parameters 
+to tweak to control video fidelity (trades off speed and accuracy) and sample rate for mouse movements.
 
 
 webgazer.util.bound(prediction);
