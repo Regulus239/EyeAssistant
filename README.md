@@ -8,11 +8,9 @@ The usage of Thunderbird and Visualstudio C# Windows Presentation Foundation: Ab
 
 Usage of WebGazer
 To use WebGazer.js you need to add the webgazer.js file as a script in your website:
-/* WebGazer.js library */
+
 <script src="webgazer.js" type="text/javascript" >
 Be aware that when you do local development and you might need to run locally a simple http server that supports the https protocol.
-
-Once the script is included, the webgazer object is introduced into the global namespace. webgazer has methods for controlling the operation of WebGazer.js allowing us to start and stop it, add callbacks, or change out modules. The two most important methods on webgazer are webgazer.begin() and webgazer.setGazeListener(). webgazer.begin() starts the data collection that enables the predictions, so it's important to call this early on. Once webgazer.begin() has been called, WebGazer.js is ready to start giving predictions. webgazer.setGazeListener() is a convenient way to access these predictions. This method invokes a callback you provide every few milliseconds to provide the current gaze location of a user. If you don't need constant access to this data stream, you may alternatively call webgazer.getCurrentPrediction() which will give you a prediction at the moment when it is called.
 
 
 webgazer.setGazeListener(function(data, elapsedTime) {
@@ -25,7 +23,6 @@ console.log(elapsedTime); //elapsed time is based on time since begin was called
 }).begin();
 
 Here is the alternate method of getting predictions where you can request a gaze prediction as needed.
-
 
 var prediction = webgazer.getCurrentPrediction();
 if (prediction) {
@@ -54,6 +51,7 @@ Here are all the external tracker modules that come by default with WebGazer.js.
 clmtrackr
 js_objectdetect
 tracking.js
+
 webgazer.setRegression("ridge"); //set a regression module
 webgazer.addRegressionModule("newReg", NewRegConstructor); //add a new regression module
 Here are all the regression modules that come by default with WebGazer.js. Let us know if you would like introduce different modules - just keep in mind that they should be able to produce predictions very fast.
