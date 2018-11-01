@@ -12,7 +12,7 @@ import imaplib
 import email
 from email import message_from_string
 
-dataList = []
+emailDataList = []
 # Function to hide my credentials from github. Credentials are stored in a .txt file on my Desktop
 # This function should be altered to suit your filepath and credentials file.
 def Read_Email_Creds():
@@ -30,10 +30,10 @@ def fetchEmailData():
 	typ, data = M.search(None, 'ALL') # Returns 'typ' -> whether the retrieval was 'ok' and 'data' which is obviously the data with type list.
 	for num in data[0].split(): # data[0] is a string, in this case '1 2 3 4' which is used to iterate through the 4 (not a coincidence) messages.
 		typ, data = M.fetch(num, 'RFC822') # take the number of the message in the mailbox (num being an index, essentially)
-		dataList.append(data)
+		emailDataList.append(data)
 	M.close()
 	M.logout()
-	return dataList
+	return emailDataList
 """
 	This fetch command is what dictates what data is accessed and ultimately displayed via the commandline. The second argument 'message parts'
 	refers to the standard message parts of the IMAP standard. This can be accessed via this website. I need to research more about this as mastering
