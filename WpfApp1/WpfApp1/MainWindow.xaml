@@ -7,25 +7,30 @@
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
+    <!-- The key to fixing the previous issue with both grids being activated if you looked at the left grid was to make a single overall grid, which I have named
+    "MainWindowGrid." Grids can have multiple children, while windows can only have a single child. Before we were trying to insert two Grids into a Window, which is illegal because
+    then we would be giving the parent Window two children, the two Grids. I learned this via StackOverflow by Google searching the error message.
     
-   <Grid x:Name="gazer" 
-         tobii:Behaviors.IsGazeAware="True" Margin="0,-3,600.6,257" RenderTransformOrigin="0.492,-0.665">
-        <Grid.Style>
-            <Style TargetType="Grid">
-                <Setter Property="Background" Value="Black" />
-
-                <Style.Triggers>
-                    <Trigger Property="tobii:Behaviors.HasGaze" Value="True">
-                        <Setter Property="Background" Value="Magenta" />
-                    </Trigger>
-                </Style.Triggers>
-            </Style>
-        </Grid.Style>
-       
- 
-
-    <Grid x:Name="email" 
-          tobii:Behaviors.IsGazeAware="True" Margin="635,5,-617,-2" RenderTransformOrigin="0.5,0.5">
+    So now you will notice that there is a single MainWindowGrid which is the parent of the two grids LeftGrid and RightGrid corresponding to their graphical position in MainWindow.
+    
+    The code within LeftGrid and RightGrid is merely the code you had already written from the previous version of this module, Anqi.
+    
+    - John Neal
+    -->
+    <Grid x:Name="MainWindowGrid" HorizontalAlignment="Left" Height="402" Margin="7,11,0,0" VerticalAlignment="Top" Width="781">
+        <Grid x:Name="LeftGrid" HorizontalAlignment="Left" Height="191" VerticalAlignment="Top" Width="271" tobii:Behaviors.IsGazeAware="True">
+            <Grid.Style>
+                <Style TargetType="Grid">
+                    <Setter Property="Background" Value="Black" />
+                    <Style.Triggers>
+                        <Trigger Property="tobii:Behaviors.HasGaze" Value="True">
+                            <Setter Property="Background" Value="Magenta" />
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Grid.Style>
+        </Grid>
+        <Grid x:Name="RightGrid" HorizontalAlignment="Left" Height="191" Margin="513,0,0,0" VerticalAlignment="Top" Width="266" tobii:Behaviors.IsGazeAware="True">
             <Grid.Style>
                 <Style TargetType="Grid">
                     <Setter Property="Background" Value="Black" />
@@ -37,9 +42,7 @@
                     </Style.Triggers>
                 </Style>
             </Grid.Style>
-
+        </Grid>
     </Grid>
-    </Grid>
-
 
 </Window>
