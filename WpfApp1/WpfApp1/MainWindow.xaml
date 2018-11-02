@@ -22,7 +22,7 @@
             <ColumnDefinition/>
             <ColumnDefinition Width="0*"/>
         </Grid.ColumnDefinitions>
-        <Grid x:Name="LeftGrid" HorizontalAlignment="Left" Height="273" VerticalAlignment="Top" Width="316" tobii:Behaviors.IsGazeAware="True" Margin="0,339,0,0">
+        <Grid x:Name="LeftGrid" HorizontalAlignment="Left" Height="173" VerticalAlignment="Top" Width="200" tobii:Behaviors.IsGazeAware="True" Margin="0,447,0,0">
             <Grid.Style>
                 <Style TargetType="Grid">
                     <Setter Property="Background" Value="Black" />
@@ -33,9 +33,14 @@
                     </Style.Triggers>
                 </Style>
             </Grid.Style>
-            <TextBlock HorizontalAlignment="Left" Height="123" Margin="52,70,0,0" TextWrapping="Wrap" Text="Previous Email" VerticalAlignment="Top" Width="210" Foreground="White" FontSize="48"/>
+            <TextBlock HorizontalAlignment="Left" Height="163" Margin="10,10,-1,0" TextWrapping="Wrap" Text="Previous Email" VerticalAlignment="Top" Width="191" Foreground="White" FontSize="48"/>
         </Grid>
-        <Grid x:Name="RightGrid" HorizontalAlignment="Left" Height="277" Margin="1547,335,0,0" VerticalAlignment="Top" Width="279" tobii:Behaviors.IsGazeAware="True">
+        <Grid x:Name="RightGrid" HorizontalAlignment="Left" Height="159" Margin="1667,453,0,0" VerticalAlignment="Top" Width="153" tobii:Behaviors.IsGazeAware="True">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="8*"/>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="250*"/>
+            </Grid.ColumnDefinitions>
             <Grid.Style>
                 <Style TargetType="Grid">
                     <Setter Property="Background" Value="Black" />
@@ -47,9 +52,9 @@
                     </Style.Triggers>
                 </Style>
             </Grid.Style>
-            <TextBlock HorizontalAlignment="Left" Height="193" Margin="39,42,0,0" TextWrapping="Wrap" Text="Next Email" VerticalAlignment="Top" Width="218" FontSize="72" Foreground="White"/>
+            <TextBlock Margin="3.552,10,-3,10" TextWrapping="Wrap" Text="Next Email" Width="146" FontSize="48" Foreground="White" TextAlignment="Center" HorizontalAlignment="Center" Grid.Column="2"/>
         </Grid>
-        <Grid x:Name="TopGrid" HorizontalAlignment="Left" Height="276" Margin="650,0,0,0" VerticalAlignment="Top" Width="459" tobii:Behaviors.IsGazeAware="True">
+        <Grid x:Name="TopGrid" HorizontalAlignment="Left" Height="102" Margin="792,0,0,0" VerticalAlignment="Top" Width="221" tobii:Behaviors.IsGazeAware="True">
             <Grid.Style>
                 <Style TargetType="Grid">
                     <Setter Property="Background" Value="Black" />
@@ -61,9 +66,13 @@
                     </Style.Triggers>
                 </Style>
             </Grid.Style>
-            <TextBlock HorizontalAlignment="Center" Margin="160,97,166,104" TextWrapping="Wrap" Text="Open" Width="133" Foreground="White" FontSize="48"/>
+            <TextBlock HorizontalAlignment="Center" Margin="10" TextWrapping="Wrap" Text="Open" Width="490" Foreground="White" FontSize="48" TextAlignment="Center"/>
         </Grid>
-        <Grid x:Name="BottomGrid" HorizontalAlignment="Left" Height="269" Margin="650,642,0,0" VerticalAlignment="Top" Width="445" tobii:Behaviors.IsGazeAware="True">
+        <Grid x:Name="BottomGrid" HorizontalAlignment="Left" Height="122" Margin="807,789,0,0" VerticalAlignment="Top" Width="202" tobii:Behaviors.IsGazeAware="True">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="173*"/>
+                <ColumnDefinition Width="29*"/>
+            </Grid.ColumnDefinitions>
             <Grid.Style>
                 <Style TargetType="Grid">
                     <Setter Property="Background" Value="Black" />
@@ -75,7 +84,7 @@
                     </Style.Triggers>
                 </Style>
             </Grid.Style>
-            <TextBlock HorizontalAlignment="Left" Height="78" Margin="151,96,0,0" TextWrapping="Wrap" Text="Delete" VerticalAlignment="Top" Width="143" Foreground="White" FontSize="48"/>
+            <TextBlock HorizontalAlignment="Center" Margin="10,12,10,5" TextWrapping="Wrap" Text="Delete" Width="182" Foreground="White" FontSize="48" TextAlignment="Center" Grid.ColumnSpan="2"/>
         </Grid>
     </Grid>
 
