@@ -6,7 +6,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="989.083" Width="1871.466">
     <!-- The key to fixing the previous issue with both grids being activated if you looked at the left grid was to make a single overall grid, which I have named
     "MainWindowGrid." Grids can have multiple children, while windows can only have a single child. Before we were trying to insert two Grids into a Window, which is illegal because
     then we would be giving the parent Window two children, the two Grids. I learned this via StackOverflow by Google searching the error message.
@@ -17,8 +17,12 @@
     
     - John Neal
     -->
-    <Grid x:Name="MainWindowGrid" HorizontalAlignment="Left" Height="402" Margin="7,11,0,0" VerticalAlignment="Top" Width="781">
-        <Grid x:Name="LeftGrid" HorizontalAlignment="Left" Height="191" VerticalAlignment="Top" Width="271" tobii:Behaviors.IsGazeAware="True">
+    <Grid x:Name="MainWindowGrid" HorizontalAlignment="Left" Height="921" Margin="35,33,0,0" VerticalAlignment="Top" Width="1826">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="0*"/>
+        </Grid.ColumnDefinitions>
+        <Grid x:Name="LeftGrid" HorizontalAlignment="Left" Height="273" VerticalAlignment="Top" Width="316" tobii:Behaviors.IsGazeAware="True" Margin="0,339,0,0">
             <Grid.Style>
                 <Style TargetType="Grid">
                     <Setter Property="Background" Value="Black" />
@@ -29,8 +33,9 @@
                     </Style.Triggers>
                 </Style>
             </Grid.Style>
+            <TextBlock HorizontalAlignment="Left" Height="123" Margin="52,70,0,0" TextWrapping="Wrap" Text="Previous Email" VerticalAlignment="Top" Width="210" Foreground="White" FontSize="48"/>
         </Grid>
-        <Grid x:Name="RightGrid" HorizontalAlignment="Left" Height="191" Margin="513,0,0,0" VerticalAlignment="Top" Width="266" tobii:Behaviors.IsGazeAware="True">
+        <Grid x:Name="RightGrid" HorizontalAlignment="Left" Height="277" Margin="1547,335,0,0" VerticalAlignment="Top" Width="279" tobii:Behaviors.IsGazeAware="True">
             <Grid.Style>
                 <Style TargetType="Grid">
                     <Setter Property="Background" Value="Black" />
@@ -42,6 +47,35 @@
                     </Style.Triggers>
                 </Style>
             </Grid.Style>
+            <TextBlock HorizontalAlignment="Left" Height="193" Margin="39,42,0,0" TextWrapping="Wrap" Text="Next Email" VerticalAlignment="Top" Width="218" FontSize="72" Foreground="White"/>
+        </Grid>
+        <Grid x:Name="TopGrid" HorizontalAlignment="Left" Height="276" Margin="650,0,0,0" VerticalAlignment="Top" Width="459" tobii:Behaviors.IsGazeAware="True">
+            <Grid.Style>
+                <Style TargetType="Grid">
+                    <Setter Property="Background" Value="Black" />
+
+                    <Style.Triggers>
+                        <Trigger Property="tobii:Behaviors.HasGaze" Value="True">
+                            <Setter Property="Background" Value="Green" />
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Grid.Style>
+            <TextBlock HorizontalAlignment="Center" Margin="160,97,166,104" TextWrapping="Wrap" Text="Open" Width="133" Foreground="White" FontSize="48"/>
+        </Grid>
+        <Grid x:Name="BottomGrid" HorizontalAlignment="Left" Height="269" Margin="650,642,0,0" VerticalAlignment="Top" Width="445" tobii:Behaviors.IsGazeAware="True">
+            <Grid.Style>
+                <Style TargetType="Grid">
+                    <Setter Property="Background" Value="Black" />
+
+                    <Style.Triggers>
+                        <Trigger Property="tobii:Behaviors.HasGaze" Value="True">
+                            <Setter Property="Background" Value="Blue" />
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Grid.Style>
+            <TextBlock HorizontalAlignment="Left" Height="78" Margin="151,96,0,0" TextWrapping="Wrap" Text="Delete" VerticalAlignment="Top" Width="143" Foreground="White" FontSize="48"/>
         </Grid>
     </Grid>
 
