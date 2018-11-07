@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2048
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImportPythonEmailModules2", "ImportPythonEmailModules2\ImportPythonEmailModules2.csproj", "{B2C6B229-6308-429E-BAE7-061B8069661E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B2C6B229-6308-429E-BAE7-061B8069661E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B2C6B229-6308-429E-BAE7-061B8069661E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B2C6B229-6308-429E-BAE7-061B8069661E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B2C6B229-6308-429E-BAE7-061B8069661E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {599F9B8C-A46B-4B9E-8054-78FEFA6207C9}
+	EndGlobalSection
+EndGlobal
