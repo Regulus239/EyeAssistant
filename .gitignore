@@ -1,3 +1,4 @@
 WpfApp1/packages/*
 WpfApp1/WpfApp1/obj/*
 WpfApp1/WpfApp1/bin/*
+/ImportPythonEmailModules/.vs/ImportPythonEmailModules/v15/Server/sqlite3/db.lock
