@@ -16,7 +16,7 @@ emailDataList = []
 # Function to hide my credentials from github. Credentials are stored in a .txt file on my Desktop
 # This function should be altered to suit your filepath and credentials file.
 def Read_Email_Creds():
-    file = open('/home/jsneal/Desktop/Test_Email_Creds.txt', 'r') # Insert the path to a text file with your credentials and modify to suit your .txt file.
+    file = open('C:\\Users\\jsnea\\Desktop\\ec601code\\Test_Email_Creds.txt', 'r') # Insert the path to a text file with your credentials and modify to suit your .txt file.
     username = file.readline()
     password = file.readline()
     return [username, password]

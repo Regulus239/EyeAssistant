@@ -14,9 +14,9 @@ C:\Users\jsnea\source\repos\EyeAssistant\ImportPythonEmailModules2\ImportPythonE
 C:\Users\jsnea\source\repos\EyeAssistant\ImportPythonEmailModules2\ImportPythonEmailModules2\bin\Debug\netcoreapp2.1\ImportPythonEmailModules2.runtimeconfig.dev.json
 C:\Users\jsnea\source\repos\EyeAssistant\ImportPythonEmailModules2\ImportPythonEmailModules2\bin\Debug\netcoreapp2.1\ImportPythonEmailModules2.dll
 C:\Users\jsnea\source\repos\EyeAssistant\ImportPythonEmailModules2\ImportPythonEmailModules2\bin\Debug\netcoreapp2.1\ImportPythonEmailModules2.pdb
-C:\Users\jsnea\source\repos\EyeAssistant\ImportPythonEmailModules2\ImportPythonEmailModules2\obj\Debug\netcoreapp2.1\ImportPythonEmailModules2.csprojAssemblyReference.cache
 C:\Users\jsnea\source\repos\EyeAssistant\ImportPythonEmailModules2\ImportPythonEmailModules2\obj\Debug\netcoreapp2.1\ImportPythonEmailModules2.csproj.CoreCompileInputs.cache
 C:\Users\jsnea\source\repos\EyeAssistant\ImportPythonEmailModules2\ImportPythonEmailModules2\obj\Debug\netcoreapp2.1\ImportPythonEmailModules2.AssemblyInfoInputs.cache
 C:\Users\jsnea\source\repos\EyeAssistant\ImportPythonEmailModules2\ImportPythonEmailModules2\obj\Debug\netcoreapp2.1\ImportPythonEmailModules2.AssemblyInfo.cs
 C:\Users\jsnea\source\repos\EyeAssistant\ImportPythonEmailModules2\ImportPythonEmailModules2\obj\Debug\netcoreapp2.1\ImportPythonEmailModules2.dll
 C:\Users\jsnea\source\repos\EyeAssistant\ImportPythonEmailModules2\ImportPythonEmailModules2\obj\Debug\netcoreapp2.1\ImportPythonEmailModules2.pdb
+C:\Users\jsnea\source\repos\EyeAssistant\ImportPythonEmailModules2\ImportPythonEmailModules2\obj\Debug\netcoreapp2.1\ImportPythonEmailModules2.csprojAssemblyReference.cache
