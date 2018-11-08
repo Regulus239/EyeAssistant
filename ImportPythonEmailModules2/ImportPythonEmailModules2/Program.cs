@@ -25,15 +25,65 @@ namespace ImportPythonEmailModules
         static void Main(string[] args)
         {   // Proof that the function works->Build ImportPythonEmailModules2:
             List<Dictionary<string, string>> emailList = new List<Dictionary<string, string>>();
-            emailList = emailString2ListDict();
+            string pythonEmailString;
+            string[] pythonEmailArray;
+            pythonEmailString = importPythonEmailString();
+            pythonEmailArray = string2StringArray(pythonEmailString);
+            emailList = emailString2ListDict(pythonEmailArray);
             // Then see that these console functions respond appropriately (feel free to index any which way you'd like using the list index and dictionary keys).
             Console.WriteLine(emailList[0]["From"]);
             Console.ReadKey();
         }
 
-       static List<Dictionary<string, string>> emailString2ListDict()
+       static List<Dictionary<string, string>> emailString2ListDict(string[] returnStrs)
         {
-             // full path of python interpreter 
+            char[] returnStrsChars2Trim = { '{', '}' }; // For getting rid of Python dictionary brackets
+            char[] trimQuotes = { '\'' }; // for getting rid of Python dictionary keys
+            string[] splitStrArrayChars = { "',", ", '" }; // for splitting entries in Python dictionary from each other
+
+            // String manipulation functions for extraction
+            List<Dictionary<string, string>> emailList = new List<Dictionary<string, string>>(); // Final output of method to be sent to our UI
+
+            for (int i = 0; i<returnStrs.Length; i++)
+            {
+                string[] splitStrArray;
+                returnStrs[i] = returnStrs[i].Trim(returnStrsChars2Trim); // getting rid of Python dictionary brackets
+
+                // Taking a particular dictionary (an email data set) and separating it into fields
+                splitStrArray = returnStrs[i].Split(splitStrArrayChars, StringSplitOptions.None);
+
+                // Each element of splitStrArray corresponds to a field of the email dictionary
+                splitStrArray[0] = splitStrArray[0].Replace("'Date': ", "").Trim(trimQuotes);
+                splitStrArray[1] = splitStrArray[1].Replace(" 'To': ", "").Trim(trimQuotes);
+                splitStrArray[2] = splitStrArray[2].Replace(" 'Content': ", "").Trim(trimQuotes);
+                splitStrArray[3] = splitStrArray[3].Replace(" 'From': ", "").Replace("From': ", "").Trim(trimQuotes);
+                splitStrArray[4] = splitStrArray[4].Replace(" 'Subject': ", "").Trim(trimQuotes);
+
+                // Creating C# email dictionary
+                Dictionary<string, string> singleEmailDict = new Dictionary<string, string>()
+                                        {
+                                            {"Date",splitStrArray[0]},
+                                            {"To", splitStrArray[1]},
+                                            {"Content",splitStrArray[2]},
+                                            {"From",splitStrArray[3]},
+                                            {"Subject",splitStrArray[4]}
+                                        };
+                // Adding dictionary to list of dictionaries
+                emailList.Add(singleEmailDict);
+            }
+
+            //List<Dictionary<string, string>> emailListDict; for testing
+            //emailListDict = emailString2ListDict(newString); for testing
+
+            // write the output we got from python app 
+            //Console.WriteLine(returnStrs[2]);
+            //Console.ReadKey();
+            return emailList;
+        }
+
+        static string importPythonEmailString()
+        {
+            // full path of python interpreter 
             string python = @"C:\Users\jsnea\Anaconda2\python.exe";
 
             // python app to call 
@@ -75,9 +125,11 @@ namespace ImportPythonEmailModules
             myProcess.WaitForExit();
             myProcess.Close();
 
-            // String manipulation functions for extraction
-            List<Dictionary<string, string>> emailList = new List<Dictionary<string, string>>(); // Final output of method to be sent to our UI
+            return newString;
+        }
 
+        static string[] string2StringArray(string newString)
+        {
             //There are a lot of char[]'s for various trimming steps
             char[] chars2Trim = { '[', ']' }; // for getting rid of Python List brackets
             char[] returnStrsChars2Trim = { '{', '}' }; // For getting rid of Python dictionary brackets
@@ -90,41 +142,9 @@ namespace ImportPythonEmailModules
             string[] returnStrs; // result of split with newString, probably not necessary
             newString = newString.Trim(chars2Trim); // getting rid of Python list brackets
             returnStrs = newString.Split(str2Split, StringSplitOptions.None); // getting rid of Python dictionary brackets
-            for (int i = 0; i<returnStrs.Length; i++)
-            {
-                string[] splitStrArray;
-                returnStrs[i] = returnStrs[i].Trim(returnStrsChars2Trim); // getting rid of Python dictionary brackets
-
-                // Taking a particular dictionary (an email data set) and separating it into fields
-                splitStrArray = returnStrs[i].Split(splitStrArrayChars, StringSplitOptions.None);
-
-                // Each element of splitStrArray corresponds to a field of the email dictionary
-                splitStrArray[0] = splitStrArray[0].Replace("'Date': ", "").Trim(trimQuotes);
-                splitStrArray[1] = splitStrArray[1].Replace(" 'To': ", "").Trim(trimQuotes);
-                splitStrArray[2] = splitStrArray[2].Replace(" 'Content': ", "").Trim(trimQuotes);
-                splitStrArray[3] = splitStrArray[3].Replace(" 'From': ", "").Replace("From': ", "").Trim(trimQuotes);
-                splitStrArray[4] = splitStrArray[4].Replace(" 'Subject': ", "").Trim(trimQuotes);
-
-                // Creating C# email dictionary
-                Dictionary<string, string> singleEmailDict = new Dictionary<string, string>()
-                                        {
-                                            {"Date",splitStrArray[0]},
-                                            {"To", splitStrArray[1]},
-                                            {"Content",splitStrArray[2]},
-                                            {"From",splitStrArray[3]},
-                                            {"Subject",splitStrArray[4]}
-                                        };
-                // Adding dictionary to list of dictionaries
-                emailList.Add(singleEmailDict);
-            }
-
-            //List<Dictionary<string, string>> emailListDict; for testing
-            //emailListDict = emailString2ListDict(newString); for testing
-
-            // write the output we got from python app 
-            //Console.WriteLine(returnStrs[2]);
-            //Console.ReadKey();
-            return emailList;
+            return returnStrs;
         }
+
+
     }
 }
