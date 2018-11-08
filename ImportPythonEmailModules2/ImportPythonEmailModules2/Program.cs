@@ -8,8 +8,10 @@ using System.Collections.Generic;
 // This module is both roughly commented and roughly designed. The importing from Python and the string manipulation
 // Produces the desired List of dictionaries to be sent to our UI.
 
-// I just need to create a method with these steps and test it as a method (since I've already tested the algorithm) in the main I have here.
+// I need to try importing this into another module.
 // I should also run some better test cases on this method as I have only tested this on a few emails and am worried that it will not work for all.
+// I also need to clean up commented out code. I have it there for now because I am still testing this code to see it works with various test-case emails.
+// I could also possibly break the method into a few methods, making it more modular and easy to read.ated 
 namespace ImportPythonEmailModules
 {
     /// <summary> 
@@ -21,8 +23,17 @@ namespace ImportPythonEmailModules
     class Program
     {
         static void Main(string[] args)
+        {   // Proof that the function works->Build ImportPythonEmailModules2:
+            List<Dictionary<string, string>> emailList = new List<Dictionary<string, string>>();
+            emailList = emailString2ListDict();
+            // Then see that these console functions respond appropriately (feel free to index any which way you'd like using the list index and dictionary keys).
+            Console.WriteLine(emailList[0]["From"]);
+            Console.ReadKey();
+        }
+
+       static List<Dictionary<string, string>> emailString2ListDict()
         {
-            // full path of python interpreter 
+             // full path of python interpreter 
             string python = @"C:\Users\jsnea\Anaconda2\python.exe";
 
             // python app to call 
@@ -66,11 +77,11 @@ namespace ImportPythonEmailModules
 
             // String manipulation functions for extraction
             List<Dictionary<string, string>> emailList = new List<Dictionary<string, string>>(); // Final output of method to be sent to our UI
-            
+
             //There are a lot of char[]'s for various trimming steps
-            char[] chars2Trim = {'[', ']'}; // for getting rid of Python List brackets
+            char[] chars2Trim = { '[', ']' }; // for getting rid of Python List brackets
             char[] returnStrsChars2Trim = { '{', '}' }; // For getting rid of Python dictionary brackets
-            char[] trimQuotes = {'\''}; // for getting rid of Python dictionary keys
+            char[] trimQuotes = { '\'' }; // for getting rid of Python dictionary keys
 
             // A few string[]'s for various splitting steps
             string[] str2Split = { "}, " }; // For splitting dictioanries in the Python list from each other
@@ -79,13 +90,13 @@ namespace ImportPythonEmailModules
             string[] returnStrs; // result of split with newString, probably not necessary
             newString = newString.Trim(chars2Trim); // getting rid of Python list brackets
             returnStrs = newString.Split(str2Split, StringSplitOptions.None); // getting rid of Python dictionary brackets
-            for (int i = 0; i < returnStrs.Length; i++)
+            for (int i = 0; i<returnStrs.Length; i++)
             {
                 string[] splitStrArray;
                 returnStrs[i] = returnStrs[i].Trim(returnStrsChars2Trim); // getting rid of Python dictionary brackets
 
                 // Taking a particular dictionary (an email data set) and separating it into fields
-                splitStrArray = returnStrs[i].Split(splitStrArrayChars, StringSplitOptions.None); 
+                splitStrArray = returnStrs[i].Split(splitStrArrayChars, StringSplitOptions.None);
 
                 // Each element of splitStrArray corresponds to a field of the email dictionary
                 splitStrArray[0] = splitStrArray[0].Replace("'Date': ", "").Trim(trimQuotes);
@@ -113,16 +124,7 @@ namespace ImportPythonEmailModules
             // write the output we got from python app 
             //Console.WriteLine(returnStrs[2]);
             //Console.ReadKey();
+            return emailList;
         }
-
-       /* static List<Dictionary<string, string>> emailString2ListDict(string) Perhaps this will be the structure for the method I create later
-        {
-            List<Dictionary<string, string>> emailListDict;
-
-            
-
-
-            return emailListDict;
-        }*/
     }
 }
