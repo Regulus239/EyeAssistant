@@ -85,10 +85,10 @@ namespace ImportPythonEmailModules
 
         static string importPythonEmailString()
         {
-            // full path of python interpreter 
+            // full path of python interpreter  (change for your specifications)
             string python = @"C:\Users\jsnea\Anaconda2\python.exe";
 
-            // python app to call 
+            // python app to call (change for your specifications)
             string myPythonMain = "C:\\Users\\jsnea\\Desktop\\ec601code\\Python_Email_Modules\\main.py";
 
             // Create new process start info 
