@@ -18,7 +18,10 @@ def organizeEmailData(emailDataList):
 		From = reducedData.split('From:')[1].split('\n', 1)[0].strip(' ')
 		To = reducedData.split('To:')[1].split('\n', 1)[0].strip(' ')
 		Date = reducedData.split('Date:')[1].split('\n', 1)[0].strip(' ')
-		Content = reducedData.split('Content-Transfer-Encoding: quoted-printable')[1].split('\n', 1)[1].strip().split('</html>')[0]
+		try:
+			Content = reducedData.split('Content-Transfer-Encoding: quoted-printable')[1].split('\n', 1)[1].strip().split('</html>')[0]
+		except:
+			Content = reducedData.split('Content-Type: text/plain; charset="UTF-8"')[1].split('\n', 1)[1].strip().split('</html>')[0].split('--')[0]
 		if Content.find('<html') != -1:	# If the quoted-printable form is in html then, since we split at </html> we have to readd it
 			Content = Content + '</html>'
 		emailDict['Subject'] = Subject	# Assigning to fields of emailDict

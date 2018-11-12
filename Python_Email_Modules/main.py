@@ -36,6 +36,6 @@ fields of info from the email. These keys correspond to Subject, From, To, Conte
 
 emailDataList = fetchEmailData() 
 organizedDataList = organizeEmailData(emailDataList)
-#sys.stdout.write(organizedDataList) # so that the string of the dictionary can be sent to stdout
+sys.stdout.write(str(organizedDataList)) # so that the string of the dictionary can be sent to stdout
 
 

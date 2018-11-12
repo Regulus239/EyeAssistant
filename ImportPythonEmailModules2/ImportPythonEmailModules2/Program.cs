@@ -32,7 +32,11 @@ namespace ImportPythonEmailModules
             pythonEmailArray = separateEmailStrings(pythonEmailString);
             emailList = createListOfEmailDicts(pythonEmailArray);
             // Then see that these console functions respond appropriately (feel free to index any which way you'd like using the list index and dictionary keys).
-            Console.WriteLine(emailList[0]["From"]);
+            Console.WriteLine(emailList[5]["Date"]);
+            Console.WriteLine(emailList[5]["From"]);
+            Console.WriteLine(emailList[5]["To"]);
+            Console.WriteLine(emailList[5]["Subject"]);
+            Console.WriteLine(emailList[5]["Content"]);
             Console.ReadKey();
         }
 
@@ -52,7 +56,6 @@ namespace ImportPythonEmailModules
 
                 // Taking a particular dictionary (an email data set) and separating it into fields
                 emailArray = unfixedEmailArray[i].Split(emailArrayChars, StringSplitOptions.None);
-
                 // Each element of emailArray corresponds to a field of the email dictionary
                 emailArray[0] = emailArray[0].Replace("'Date': ", "").Trim(singleQuote);
                 emailArray[1] = emailArray[1].Replace(" 'To': ", "").Trim(singleQuote);
@@ -89,7 +92,7 @@ namespace ImportPythonEmailModules
             string python = @"C:\Users\jsnea\Anaconda2\python.exe";
 
             // python app to call (change for your specifications)
-            string myPythonMain = "C:\\Users\\jsnea\\Desktop\\ec601code\\Python_Email_Modules\\main.py";
+            string myPythonMain = "C:\\Users\\jsnea\\source\\repos\\EyeAssistant\\Python_Email_Modules\\main.py";
 
             // Create new process start info 
             ProcessStartInfo python2Filepath = new ProcessStartInfo(python);
