@@ -5,22 +5,141 @@ webgazer_application
 </head>
 <body>
 <script src="/Users/valquiria/WebGazer/www/webgazer.js" type="text/javascript" ></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>   
+
+
+<canvas id="myCanvas" width="1200" height="875"></canvas>
 <div id = "showprediction">
-     <p id = "x" style = "text-align: right">x </p>
-     <p id = "y" style = "text-align: right">y </p>
+     <p id = "x" style = "text-align: right "> </p>
+     <p id = "y" style = "text-align: right"> </p>
 </div>
+
+
+<div id="mouse" style = "text-align: right">
+
+
+</div>
+
+
+
 
 <div id = "WebG">
 <script>
+var xPast50 = new Array(50);
+var yPast50 = new Array(50);
+var Pastfull = 0;
+var xavg;
+var yavg;
+var xsq_avg;
+var xyavg;
+var k;
+var mouse_x;
+var mouse_y;
+var pred_vec_x;
+var pred_vec_y;
+var xpos;
+function drawArrow(ctx, fromX, fromY, toX, toY,theta,headlen,width,color) { //draw a line https://www.w3cplus.com/canvas/drawing-arrow.html
+    theta = typeof(theta) != 'undefined' ? theta : 30; 
+    headlen = typeof(theta) != 'undefined' ? headlen : 10; 
+    width = typeof(width) != 'undefined' ? width : 1; 
+    color = typeof(color) != 'color' ? color : '#000'; 
+    var angle = Math.atan2(fromY - toY, fromX - toX) * 180 / Math.PI, angle1 = (angle + theta) * Math.PI / 180, angle2 = (angle - theta) * Math.PI / 180, topX = headlen * Math.cos(angle1), topY = headlen * Math.sin(angle1), botX = headlen * Math.cos(angle2), botY = headlen * Math.sin(angle2); 
+    ctx.save(); 
+    ctx.beginPath(); 
+    var arrowX = fromX - topX, arrowY = fromY - topY; 
+    ctx.moveTo(arrowX, arrowY); 
+    ctx.moveTo(fromX, fromY); 
+    ctx.lineTo(toX, toY); 
+    arrowX = toX + topX; 
+    arrowY = toY + topY; 
+    ctx.moveTo(arrowX, arrowY); 
+    ctx.lineTo(toX, toY); 
+    arrowX = toX + botX; 
+    arrowY = toY + botY; 
+    ctx.lineTo(arrowX, arrowY); 
+    ctx.strokeStyle = color; 
+    ctx.lineWidth = width; 
+    ctx.stroke(); 
+    ctx.restore(); 
+}
+
+//webgazer.setTracker("tracking.js");
+//webgazer.setRegression("ridge");
 webgazer.setGazeListener(function(data) {
     if (data == null) {
         return;
     }
+    var windowHeight = $(window).height();
+    var windowWidth = $(window).width();
+    
     var xprediction = data.x; //these x coordinates are relative to the viewport
     var yprediction = data.y; //these y coordinates are relative to the viewport
-    console.log(data); //elapsed time is based on time since begin was called
-    webgazer.showPredictionPoints(0);
-    console.log(getRegression());
+    //console.log(data); //elapsed time is based on time since begin was called
+    
+    document.onmousemove=function(e){//move while calibration
+        //var loc="mouse x: "+e.pageX+"mouse y: "+e.pageY;
+        mouse_x=e.pageX;
+        mouse_y=e.pageY;
+        //var past50 = get_points() // retrieve the stored points
+        //var precision_measurement = 100-((e.pageX-xprediction)*(e.pageX-xprediction)+(e.pageY-yprediction)*(e.pageY-yprediction))/((windowHeight*windowHeight)+windowWidth*windowWidth)*400+"%";
+        //document.getElementById("mouse").innerHTML="current accuracy: "+precision_measurement;
+    }
+    if (Pastfull<49){
+        xPast50[Pastfull]=xprediction;
+        yPast50[Pastfull]=yprediction;
+        ++Pastfull;
+    }
+    else{
+        for (var i=0;i<49;++i){
+            xPast50[i]=xPast50[i+1];
+            yPast50[i]=yPast50[i+1];
+        }
+        xPast50[Pastfull]=xprediction;
+        yPast50[Pastfull]=yprediction;
+    }
+
+    xavg=0;
+    yavg=0;
+    
+    xsq_avg=0;
+    xyavg=0;
+    for (var i=0;i<50;++i){
+            xavg+=xPast50[i];
+            yavg+=yPast50[i];
+            xsq_avg+=xPast50[i]*xPast50[i];
+            xyavg=xPast50[i]*yPast50[i];
+    }
+    xavg/=50;
+    yavg/=50;
+    xsq_avg/=50;
+    xyavg/=50;
+
+
+    if (xavg>mouse_x){
+        xpos=1;
+    }
+    else{
+        xpos=-1;
+    }
+
+    k=(xyavg-xavg*yavg)/(xsq_avg-xavg*xavg);
+    //console.log(xpos*Math.sqrt((xavg-mouse_x)*(xavg-mouse_x)+(yavg-mouse_y)*(yavg-mouse_y))/Math.sqrt(k*k+1));
+    pred_vec_x=mouse_x+xpos*Math.sqrt((xavg-mouse_x)*(xavg-mouse_x)+(yavg-mouse_y)*(yavg-mouse_y))/Math.sqrt(k*k+1);//set the avg length equally
+    pred_vec_y=mouse_y+Math.sqrt((xavg-mouse_x)*(xavg-mouse_x)+(yavg-mouse_y)*(yavg-mouse_y))*k/Math.sqrt(k*k+1);
+    
+    console.log("x: "+pred_vec_x+" y: "+pred_vec_y);
+
+    webgazer.showPredictionPoints(1);
+    
+    var c = document.getElementById("myCanvas");
+    var ctx = c.getContext("2d");
+    drawArrow(ctx,mouse_x,mouse_y,pred_vec_x,pred_vec_y,30,30,1,'#d6f')
+
+    document.getElementById("x").innerHTML="eyes pos x :"+xprediction;
+    document.getElementById("y").innerHTML="eyes pos y :"+yprediction;
+    //webgazer.util.bound(prediction);
+
+
 }).begin();
 </script>
 </div>
