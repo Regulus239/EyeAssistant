@@ -140,9 +140,13 @@ webgazer.setGazeListener(function(data) {
     var c = document.getElementById("myCanvas");
     var ctx = c.getContext("2d");
     drawArrow(ctx,mouse_x,mouse_y,pred_vec_x,pred_vec_y,30,30,1,'#d6f')
-
-    document.getElementById("x").innerHTML="eyes pos x :"+xprediction;
-    document.getElementById("y").innerHTML="eyes pos y :"+yprediction;
+    
+    setInterval("refresh()",5000);
+    function refresh(){
+    alert("re");
+    }
+    //document.getElementById("x").innerHTML="eyes pos x :"+xprediction;
+    //document.getElementById("y").innerHTML="eyes pos y :"+yprediction;
     //webgazer.util.bound(prediction);
 
 
