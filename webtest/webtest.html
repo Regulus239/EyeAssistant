@@ -33,7 +33,7 @@ webgazer_application
     .button3 {
         background-color: rebeccapurple;
         position: fixed;
-        top:200px;
+        top: 200px;
         right: 0px;
         border: none;
         color: white;
@@ -48,9 +48,9 @@ webgazer_application
 </style>
 
 
-<button type="button" class="button1" >webgazer.end</button>
-<button type="button" class="button2">webgazer.pause</button>
-<button type="button" class="button3">webgazer.resume</button>
+<button type="button" class="button1" onclick="web_end()" >webgazer.end</button>
+<button type="button" class="button2" onclick="web_pause()">webgazer.pause</button>
+<button type="button" class="button3" onclick="web_resume()">webgazer.resume</button>
 <canvas id="myCanvas" width="1200" height="875"></canvas>
 <div id = "showprediction">
      <p id = "x" style = "text-align: right "> </p>
@@ -81,6 +81,8 @@ var mouse_y;
 var pred_vec_x;
 var pred_vec_y;
 var xpos;
+
+
 function drawArrow(ctx, fromX, fromY, toX, toY,theta,headlen,width,color) { //draw a line https://www.w3cplus.com/canvas/drawing-arrow.html
     theta = typeof(theta) != 'undefined' ? theta : 30; 
     headlen = typeof(theta) != 'undefined' ? headlen : 10; 
@@ -105,6 +107,22 @@ function drawArrow(ctx, fromX, fromY, toX, toY,theta,headlen,width,color) { //dr
     ctx.stroke(); 
     ctx.restore(); 
 }
+
+
+function web_end(){//record training data
+    webgazer.end();
+    alert("training data saved");
+}
+
+function web_pause(){//stop training
+    webgazer.pause();
+    alert("training stopped");
+}
+function web_resume(){//continue training
+    webgazer.resume();
+    alert("training continued");
+}
+
 
 //webgazer.setTracker("tracking.js");
 //webgazer.setRegression("ridge");
