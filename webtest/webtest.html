@@ -107,7 +107,7 @@ webgazer.setGazeListener(function(data) {
             xavg+=xPast50[i];
             yavg+=yPast50[i];
             xsq_avg+=xPast50[i]*xPast50[i];
-            xyavg=xPast50[i]*yPast50[i];
+            xyavg+=xPast50[i]*yPast50[i];
     }
     xavg/=50;
     yavg/=50;
@@ -122,10 +122,16 @@ webgazer.setGazeListener(function(data) {
         xpos=-1;
     }
 
+    if (yavg>mouse_y){
+        ypos=1;
+    }
+    else{
+        ypos=-1;
+    }
     k=(xyavg-xavg*yavg)/(xsq_avg-xavg*xavg);
     //console.log(xpos*Math.sqrt((xavg-mouse_x)*(xavg-mouse_x)+(yavg-mouse_y)*(yavg-mouse_y))/Math.sqrt(k*k+1));
     pred_vec_x=mouse_x+xpos*Math.sqrt((xavg-mouse_x)*(xavg-mouse_x)+(yavg-mouse_y)*(yavg-mouse_y))/Math.sqrt(k*k+1);//set the avg length equally
-    pred_vec_y=mouse_y+Math.sqrt((xavg-mouse_x)*(xavg-mouse_x)+(yavg-mouse_y)*(yavg-mouse_y))*k/Math.sqrt(k*k+1);
+    pred_vec_y=mouse_y+ypos*Math.sqrt((xavg-mouse_x)*(xavg-mouse_x)+(yavg-mouse_y)*(yavg-mouse_y))*k/Math.sqrt(k*k+1);
     
     console.log("x: "+pred_vec_x+" y: "+pred_vec_y);
 
