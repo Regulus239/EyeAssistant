@@ -6,8 +6,51 @@ webgazer_application
 <body>
 <script src="/Users/valquiria/WebGazer/www/webgazer.js" type="text/javascript" ></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>   
+<style>
+    .button1 {
+        background-color: rebeccapurple;
+        position: fixed;
+        right: 0px;
+        border: none;
+        color: white;
+        padding: 15px 25px;
+        text-align: center;
+        font-size: 16px;
+        cursor: pointer;
+    }
+    .button2 {
+        background-color: rebeccapurple;
+        position: fixed;
+        top: 100px;
+        right: 0px;
+        border: none;
+        color: white;
+        padding: 15px 25px;
+        text-align: center;
+        font-size: 16px;
+        cursor: pointer;
+    }
+    .button3 {
+        background-color: rebeccapurple;
+        position: fixed;
+        top:200px;
+        right: 0px;
+        border: none;
+        color: white;
+        padding: 15px 25px;
+        text-align: center;
+        font-size: 16px;
+        cursor: pointer;
+    }
+    .button:hover {
+        background-color: red;
+    }
+</style>
 
 
+<button type="button" class="button1" >webgazer.end</button>
+<button type="button" class="button2">webgazer.pause</button>
+<button type="button" class="button3">webgazer.resume</button>
 <canvas id="myCanvas" width="1200" height="875"></canvas>
 <div id = "showprediction">
      <p id = "x" style = "text-align: right "> </p>
