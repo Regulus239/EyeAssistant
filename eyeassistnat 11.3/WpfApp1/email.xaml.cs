@@ -30,6 +30,7 @@ namespace WpfApp1
         {
             this.Close();
         }
+
     }
 
     public partial class Appemail : Application

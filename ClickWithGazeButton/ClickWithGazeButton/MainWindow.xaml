@@ -1,0 +1,54 @@
+﻿<Window x:Class="ClickWithGazeButton.MainWindow" 
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:tobii="clr-namespace:Tobii.Interaction.Wpf;assembly=Tobii.Interaction.Net"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <!-- For detailed notes see MainWindow.xaml.cs
+        I think we had tried to use EventSetter before to call gaze-clickable function, but we were unsuccessful. I think this is
+        because we had been using tobii:Behaviors.HasGaze (A boolean) rather than tobii:Behaviors.HasGazeChanged. I believe we recognized this
+        but were unsure how to proceed because we weren't sure what the events available to us were as we were too unfamiliar with the eye tracker's documentation.
+    
+        It's also difficult because they use .HasGaze in the example .cs code in the github repository referenced in MainWindow.xaml.cs (https://github.com/Tobii/interaction-samples)
+        This property didn't translate over to the newer SDK it seems because I tried implementing it and could not get it to work. Let me know if you guys have any questions.
+    -->
+    <Grid HorizontalAlignment="Left" Height="401" Margin="12,10,0,0" VerticalAlignment="Top" Width="767"> <!-- Grid for NotepadButton-->
+        <Grid tobii:Behaviors.IsGazeAware="True" tobii:Behaviors.GazeAwareMode="Delayed" 
+                tobii:Behaviors.GazeAwareDelayTime="250" HorizontalAlignment="Left" Height="172" VerticalAlignment="Top" Width="172" Margin="78,41,0,0">
+            <!-- Based on my own experience, it seems Time=250 is the best, offering both speed and control. For now this is good but maybe we could test further to check optimal test results.-->
+            <Grid.Style>
+                <Style TargetType="Grid">
+                    <!--For some reason this EventSetter MUST come before the rest of the style elements-->
+                    <EventSetter Event="tobii:Behaviors.HasGazeChanged" Handler="Notepad_OnHasGazeChanged" />   
+                    <Setter Property="Background" Value="Black" />
+                    <Style.Triggers>
+                        <Trigger Property="tobii:Behaviors.HasGaze" Value="True">
+                            <Setter Property="Background" Value="Magenta" />
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Grid.Style>
+        </Grid>
+        <Grid HorizontalAlignment="Left" tobii:Behaviors.IsGazeAware="True" tobii:Behaviors.GazeAwareMode="Delayed"
+                tobii:Behaviors.GazeAwareDelayTime="1000" Height="131" VerticalAlignment="Top" Width="168" Margin="517,237,0,0">
+            <!-- Created delay click for the case without the boolean flag
+            it is still quite sloppy, opening a window when entering and exiting. Also Time=1000 is a long time.-->
+            <!-- Grid for Instruction Button-->
+            <Grid.Style>
+                <Style TargetType="Grid">
+                    <!--For some reason this EventSetter MUST come before the rest of the style elements-->
+                    <EventSetter Event="tobii:Behaviors.HasGazeChanged" Handler="Instruction_OnHasGazeChanged" />
+                    <Setter Property="Background" Value="Black" />
+                    <Style.Triggers>
+                        <Trigger Property="tobii:Behaviors.HasGaze" Value="True">
+                            <Setter Property="Background" Value="Red" />
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Grid.Style>
+        </Grid>
+    </Grid>
+
+</Window>
