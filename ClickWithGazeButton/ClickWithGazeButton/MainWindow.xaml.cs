@@ -28,6 +28,7 @@ namespace ClickWithGazeButton
     /// // Notice how this all has to lie in the MainWindow class. I'm not quite sure why yet.
     public partial class MainWindow : Window 
     {
+        bool HasGaze;
         public MainWindow()
         {
             InitializeComponent();
@@ -52,13 +53,21 @@ namespace ClickWithGazeButton
         /// 
         /// The other option is implementing "dwell clicking" so that the Gaze must "dwell" inside the grid for sometime for the Handler to be called.
         /// </summary>
-        private void Notepad_OnHasGazeChanged(object sender, RoutedEventArgs e) 
+        private void Notepad_OnHasGazeChanged(object sender, RoutedEventArgs e) // New method with added boolean flag to signal between entering and exiting the box.
         {
             var textBlock = e.Source as Grid;
             if (null == textBlock) { return; } // if the named "EventSetter" Event from MainWindow.xaml is not called.
-            GazeChangedFunction(); // Our Gaze changed function will open.
+            if (HasGaze)
+            {
+                HasGaze = false; // You're leaving the button.
+            } 
+            else
+            {
+                HasGaze = true;        // You're entering the button.
+                GazeChangedFunction(); // Our Gaze changed function will open.
+            }
         }
-        private void Instruction_OnHasGazeChanged(object sender, RoutedEventArgs e)
+        private void Instruction_OnHasGazeChanged(object sender, RoutedEventArgs e)     // The old method of "clicking" the button with your gaze
         {
             var textBlock = e.Source as Grid;
             if (null == textBlock) { return; }
