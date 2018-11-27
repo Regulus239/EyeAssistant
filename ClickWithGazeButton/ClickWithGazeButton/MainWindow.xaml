@@ -7,5 +7,17 @@
         xmlns:tobii="clr-namespace:Tobii.Interaction.Wpf;assembly=Tobii.Interaction.Net"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <custom:Button1 HorizontalAlignment="Left" Height="172" VerticalAlignment="Top" Width="172" Margin="324,143,0,0"/>
+    <custom:Button1 tobii:Behaviors.IsGazeAware="True" HorizontalAlignment="Left" Height="172" VerticalAlignment="Top" Width="172" Margin="324,143,0,0">
+        <Grid.Style>
+            <Style TargetType="Grid">
+                <Setter Property="Background" Value="White" />
+
+                <Style.Triggers>
+                    <Trigger Property="tobii:Behaviors.HasGaze" Value="True">
+                        <Setter Property="Background" Value="Magenta" />
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+        </Grid.Style>
+    </custom:Button1>
 </Window>
