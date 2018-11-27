@@ -29,7 +29,10 @@
                 </Style>
             </Grid.Style>
         </Grid>
-        <Grid HorizontalAlignment="Left" tobii:Behaviors.IsGazeAware="True" Height="131" VerticalAlignment="Top" Width="168" Margin="517,237,0,0">
+        <Grid HorizontalAlignment="Left" tobii:Behaviors.IsGazeAware="True" tobii:Behaviors.GazeAwareMode="Delayed"
+                tobii:Behaviors.GazeAwareDelayTime="1000" Height="131" VerticalAlignment="Top" Width="168" Margin="517,237,0,0">
+            <!-- Created delay click for the case without the boolean flag
+            it is still quite sloppy, opening a window when entering and exiting. Also Time=1000 is a long time.-->
             <!-- Grid for Instruction Button-->
             <Grid.Style>
                 <Style TargetType="Grid">
