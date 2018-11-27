@@ -12,75 +12,58 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using Tobii.Interaction;
+
+/// <summary>
+/// These modules are based on three modules from the github repository https://github.com/Tobii/interaction-samples:
+/// https://github.com/Tobii/interaction-samples/blob/master/WpfSamples/GazeAwareElements/MainWindow.xaml.cs - I borrowed their code structure for Event Handler functions.
+/// https://github.com/Tobii/interaction-samples/blob/master/WpfSamples/GazeAwareElements/MainWindow.xaml - I borrowed their usage of EventSetter to recognize
+/// the HasGazeChanged Event and to call the handler function. This was very helpful as many other github repositories had examples of this that did not work.
+/// </summary>
 
 namespace ClickWithGazeButton
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    /// // Notice how this all has to lie in the MainWindow class. I'm not quite sure why yet.
+    public partial class MainWindow : Window 
     {
         public MainWindow()
         {
             InitializeComponent();
-            
-        }
 
-        public void OnGazeEnters()
+        }
+        // Here begins the newly added code to call functions if the window is looked on.
+        public void GazeChangedFunction()
         {
-            System.Diagnostics.Process.Start("C:\\Windows\\Notepad.exe");
+            System.Diagnostics.Process.Start("C:\\Windows\\Notepad.exe"); // This opens Notepad if the function is called.
         }
-
+        /// <summary>
+        /// Here there are two versions of the same function each with different names.
+        /// This is to illustrate how two Grids can have different functions if either recieves your gaze.
+        /// 
+        /// Refer to line 13 (Notedpad_OnHasGazeChanged) and line 26 (Instruction_OnHasGazeChanged)in MainWindow.xaml to see how each is used in the .xaml file.
+        /// Each is a Handler for an Event, the event being tobii:Behaviors.HasGazeChanged which corresponds to looking into the Grid which is colored black.
+        /// 
+        /// The functions are glitchy (in that multiple windows of Notepad tend to open) because HasGazeChanged corresponds the Gaze enter the Grid
+        /// as well as the Gaze leaving the Grid. So Notepad is guaranteed to open twice if you look inside  the Grid. If you look at the edge of the box, you basically enter and exit
+        /// many times due to your eye twitches so that Notepad opens many times. I will look into having OnGazeEnter  (don't know if this exists)  or something like it be the event
+        /// which calls our Handler functions.
+        /// 
+        /// The other option is implementing "dwell clicking" so that the Gaze must "dwell" inside the grid for sometime for the Handler to be called.
+        /// </summary>
+        private void Notepad_OnHasGazeChanged(object sender, RoutedEventArgs e) 
+        {
+            var textBlock = e.Source as Grid;
+            if (null == textBlock) { return; } // if the named "EventSetter" Event from MainWindow.xaml is not called.
+            GazeChangedFunction(); // Our Gaze changed function will open.
+        }
         private void Instruction_OnHasGazeChanged(object sender, RoutedEventArgs e)
         {
             var textBlock = e.Source as Grid;
             if (null == textBlock) { return; }
-            OnGazeEnters();
-            /*var hasGaze = textBlock.GetHasGaze();
-            model.NotifyInstructionHasGazeChanged(hasGaze);*/
+            GazeChangedFunction();
         }
     }
 
-    public class Button1 : Grid
-    {
-        Grid buttonGrid;
-        GazeAwareBehavior buttonGridBehavior;
-        bool openNotepad;
-        //private Host _host;
-       // private Tobii.Interaction.Wpf.WpfInteractor _greetingInteractor;
-        //private Tobii.Interaction.Wpf.WpfInteractorAgent _interactorAgent;
-        //private Tobii.Interaction.WpfInteractorProvider _interactorProvider;
-        //private string Button1Name;
-        //public Tobii.Interaction.Rectangle Button1Rect;
-
-        public void onGazeLeaves()
-        {
-
-        }
-        /*private void Instruction_OnHasGazeChanged(object sender, RoutedEventArgs e)
-        {
-            var textBlock = e.Source as Grid;
-            if (null == textBlock) { return; }
-            var hasGaze = textBlock.GetHasGaze();
-            model.NotifyInstructionHasGazeChanged(hasGaze);
-        }*/
-        public Button1()
-        {   
-            buttonGrid = new Grid();
-            buttonGridBehavior = new GazeAwareBehavior(Tobii.Interaction.Framework.GazeAwareMode.Normal);
-            //buttonGridBehavior.HasGaze(HasGazeChangedEventArgs);
-            //Tobii.Interaction.Rectangle ButtonRect = Button1Rect;
-            //Button1Name = "Button1";
-            //_host = new Host();
-            //_interactorProvider = new Tobii.Interaction.WpfInteractorProvider
-           //_interactorAgent = new Tobii.Interaction.Wpf.WpfInteractorAgent(Button1Name, _interactorProvider); // Button1Str is the name of the Grid
-            //_greetingInteractor = _interactorAgent.AddInteractorFor(this); // Need to  get rid of "this"
-            /*buttonGrid
-                .WithGazeAware()
-                .HasGaze(onGazeEnters) // onGazeEnters is an action
-                .LostGaze(onGazeLeaves); // onGazeLeaves is an action
-                */
-        }
-    }
 }

@@ -3,21 +3,47 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:custom="clr-namespace:ClickWithGazeButton;assembly="
         xmlns:tobii="clr-namespace:Tobii.Interaction.Wpf;assembly=Tobii.Interaction.Net"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <custom:Button1 x:Name="NotepadButton" tobii:Behaviors.IsGazeAware="True" HorizontalAlignment="Left" Height="172" VerticalAlignment="Top" Width="172" Margin="324,143,0,0">
-        <Grid.Style>
-            <Style TargetType="Grid">
-                <EventSetter Event="tobii:Behaviors.HasGazeChanged" Handler="Instruction_OnHasGazeChanged" />
-                <Setter Property="Background" Value="White" />
-                <Style.Triggers>
-                    <Trigger Property="tobii:Behaviors.HasGaze" Value="True">
-                        <Setter Property="Background" Value="Magenta" />
-                    </Trigger>
-                </Style.Triggers>
-            </Style>
-        </Grid.Style>
-    </custom:Button1>
+    <!-- For detailed notes see MainWindow.xaml.cs
+        I think we had tried to use EventSetter before to call gaze-clickable function, but we were unsuccessful. I think this is
+        because we had been using tobii:Behaviors.HasGaze (A boolean) rather than tobii:Behaviors.HasGazeChanged. I believe we recognized this
+        but were unsure how to proceed because we weren't sure what the events available to us were as we were too unfamiliar with the eye tracker's documentation.
+    
+        It's also difficult because they use .HasGaze in the example .cs code in the github repository referenced in MainWindow.xaml.cs (https://github.com/Tobii/interaction-samples)
+        This property didn't translate over to the newer SDK it seems because I tried implementing it and could not get it to work. Let me know if you guys have any questions.
+    -->
+    <Grid HorizontalAlignment="Left" Height="401" Margin="12,10,0,0" VerticalAlignment="Top" Width="767"> <!-- Grid for NotepadButton-->
+        <Grid tobii:Behaviors.IsGazeAware="True" HorizontalAlignment="Left" Height="172" VerticalAlignment="Top" Width="172" Margin="78,41,0,0">
+            <Grid.Style>
+                <Style TargetType="Grid">
+                    <!--For some reason this EventSetter MUST come before the rest of the style elements-->
+                    <EventSetter Event="tobii:Behaviors.HasGazeChanged" Handler="Notepad_OnHasGazeChanged" />   
+                    <Setter Property="Background" Value="Black" />
+                    <Style.Triggers>
+                        <Trigger Property="tobii:Behaviors.HasGaze" Value="True">
+                            <Setter Property="Background" Value="Magenta" />
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Grid.Style>
+        </Grid>
+        <Grid HorizontalAlignment="Left" tobii:Behaviors.IsGazeAware="True" Height="131" VerticalAlignment="Top" Width="168" Margin="517,237,0,0">
+            <!-- Grid for Instruction Button-->
+            <Grid.Style>
+                <Style TargetType="Grid">
+                    <!--For some reason this EventSetter MUST come before the rest of the style elements-->
+                    <EventSetter Event="tobii:Behaviors.HasGazeChanged" Handler="Instruction_OnHasGazeChanged" />
+                    <Setter Property="Background" Value="Black" />
+                    <Style.Triggers>
+                        <Trigger Property="tobii:Behaviors.HasGaze" Value="True">
+                            <Setter Property="Background" Value="Red" />
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Grid.Style>
+        </Grid>
+    </Grid>
+
 </Window>

@@ -31,7 +31,6 @@ C:\Users\jsnea\source\repos\EyeAssistant\ClickWithGazeButton\ClickWithGazeButton
 C:\Users\jsnea\source\repos\EyeAssistant\ClickWithGazeButton\ClickWithGazeButton\obj\Debug\ClickWithGazeButton_Content.g.cs
 C:\Users\jsnea\source\repos\EyeAssistant\ClickWithGazeButton\ClickWithGazeButton\obj\Debug\GeneratedInternalTypeHelper.g.cs
 C:\Users\jsnea\source\repos\EyeAssistant\ClickWithGazeButton\ClickWithGazeButton\obj\Debug\ClickWithGazeButton_MarkupCompile.cache
-C:\Users\jsnea\source\repos\EyeAssistant\ClickWithGazeButton\ClickWithGazeButton\obj\Debug\ClickWithGazeButton_MarkupCompile.lref
 C:\Users\jsnea\source\repos\EyeAssistant\ClickWithGazeButton\ClickWithGazeButton\obj\Debug\MainWindow.baml
 C:\Users\jsnea\source\repos\EyeAssistant\ClickWithGazeButton\ClickWithGazeButton\obj\Debug\ClickWithGazeButton.g.resources
 C:\Users\jsnea\source\repos\EyeAssistant\ClickWithGazeButton\ClickWithGazeButton\obj\Debug\ClickWithGazeButton.Properties.Resources.resources
