@@ -15,7 +15,9 @@
         This property didn't translate over to the newer SDK it seems because I tried implementing it and could not get it to work. Let me know if you guys have any questions.
     -->
     <Grid HorizontalAlignment="Left" Height="401" Margin="12,10,0,0" VerticalAlignment="Top" Width="767"> <!-- Grid for NotepadButton-->
-        <Grid tobii:Behaviors.IsGazeAware="True" HorizontalAlignment="Left" Height="172" VerticalAlignment="Top" Width="172" Margin="78,41,0,0">
+        <Grid tobii:Behaviors.IsGazeAware="True" tobii:Behaviors.GazeAwareMode="Delayed" 
+                tobii:Behaviors.GazeAwareDelayTime="250" HorizontalAlignment="Left" Height="172" VerticalAlignment="Top" Width="172" Margin="78,41,0,0">
+            <!-- Based on my own experience, it seems Time=250 is the best, offering both speed and control. For now this is good but maybe we could test further to check optimal test results.-->
             <Grid.Style>
                 <Style TargetType="Grid">
                     <!--For some reason this EventSetter MUST come before the rest of the style elements-->
