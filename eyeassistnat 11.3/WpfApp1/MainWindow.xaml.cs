@@ -22,7 +22,7 @@ namespace WpfApp1
     /// </summary>
     public partial class MainWindow : Window
     {
-        bool HasGaze_Email, HasGaze_Notepad;
+        bool HasGaze_Email, HasGaze_Notepad, HasGaze_Youtube, HasGaze_Exit;
         public MainWindow()
         {
             InitializeComponent();
@@ -46,25 +46,45 @@ namespace WpfApp1
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            System.Diagnostics.Process.Start("https://www.youtube.com");
+            var grid = e.Source as Grid;
+            if (null == grid) { return; } // if the named "EventSetter" Event from MainWindow.xaml is not called.
+            if (HasGaze_Youtube)
+            {
+                HasGaze_Youtube = false; // You're leaving the button.
+            }
+            else
+            {
+                HasGaze_Youtube = true;        // You're entering the button.
+                System.Diagnostics.Process.Start("https://www.youtube.com");
+            }
         }
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            var grid = e.Source as Grid;
+            if (null == grid) { return; } // if the named "EventSetter" Event from MainWindow.xaml is not called.
+            if (HasGaze_Exit)
+            {
+                HasGaze_Exit = false; // You're leaving the button.
+            }
+            else
+            {
+                HasGaze_Exit = true;        // You're entering the button.
+                this.Close();
+            }
         }
 
         private void Button_Click_3(object sender, RoutedEventArgs e)
         {
             var grid = e.Source as Grid;
             if (null == grid) { return; } // if the named "EventSetter" Event from MainWindow.xaml is not called.
-            if (HasGaze_Email)
+            if (HasGaze_Notepad)
             {
-                HasGaze_Email = false; // You're leaving the button.
+                HasGaze_Notepad = false; // You're leaving the button.
             }
             else
             {
-                HasGaze_Email = true;        // You're entering the button.
+                HasGaze_Notepad = true;        // You're entering the button.
                 System.Diagnostics.Process.Start("C:\\Windows\\Notepad.exe");
             }
         }

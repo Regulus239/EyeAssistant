@@ -28,14 +28,44 @@
                     <Setter Property="Background" Value="Transparent" />
                     <Style.Triggers>
                         <Trigger Property="tobii:Behaviors.HasGaze" Value="True">
+                            <Setter Property="Background" Value="Yellow" /> <!-- Color doesn't really matter here because button covers it.-->
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Grid.Style>
+        </Grid>
+        <Grid tobii:Behaviors.IsGazeAware="True" tobii:Behaviors.GazeAwareMode="Delayed" tobii:Behaviors.GazeAwareDelayTime="250"
+            HorizontalAlignment="Left" Margin="645,261,0,0" VerticalAlignment="Top" Width="180" Height="75">
+            <Button Content="Youtube&#xD;&#xA;" HorizontalAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Center" Width="180" Height="75" Click="Button_Click_1" FontSize="36"/>
+            <Grid.Style>
+                <Style TargetType="Grid">
+                    <!--For some reason this EventSetter MUST come before the rest of the style elements-->
+                    <EventSetter Event="tobii:Behaviors.HasGazeChanged" Handler="Button_Click_1" />
+                    <Setter Property="Background" Value="Transparent" />
+                    <Style.Triggers>
+                        <Trigger Property="tobii:Behaviors.HasGaze" Value="True">
                             <Setter Property="Background" Value="Yellow" />
                         </Trigger>
                     </Style.Triggers>
                 </Style>
             </Grid.Style>
         </Grid>
-        <Button Content="Youtube&#xD;&#xA;" HorizontalAlignment="Left" Margin="645,230,0,0" VerticalAlignment="Top" Width="180" Height="75" Click="Button_Click_1" FontSize="36"/>
-        <Button Content="EXIT" HorizontalAlignment="Left" Margin="345,460,0,0" VerticalAlignment="Top" Width="160" Height="85" Click="Button_Click_2" FontSize="36"/>
+        <Grid  tobii:Behaviors.IsGazeAware="True" tobii:Behaviors.GazeAwareMode="Delayed" tobii:Behaviors.GazeAwareDelayTime="250"
+            HorizontalAlignment="Left" Margin="345,460,0,0" VerticalAlignment="Top" Width="160" Height="85">
+            <Button Content="EXIT" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="160" Height="85" Click="Button_Click_2" FontSize="36"/>
+            <Grid.Style>
+                <Style TargetType="Grid">
+                    <!--For some reason this EventSetter MUST come before the rest of the style elements-->
+                    <EventSetter Event="tobii:Behaviors.HasGazeChanged" Handler="Button_Click_2" />
+                    <Setter Property="Background" Value="Transparent" />
+                    <Style.Triggers>
+                        <Trigger Property="tobii:Behaviors.HasGaze" Value="True">
+                            <Setter Property="Background" Value="Yellow" />
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Grid.Style>
+        </Grid>
         <Grid  tobii:Behaviors.IsGazeAware="True" tobii:Behaviors.GazeAwareMode="Delayed" tobii:Behaviors.GazeAwareDelayTime="250"
             HorizontalAlignment="Left" Margin="25,255,0,0" VerticalAlignment="Top" Width="185" Height="85">
             <Button Content="Notepad" HorizontalAlignment="Left" VerticalAlignment="Top" Width="185" Height="85" FontSize="36" Click="Button_Click_3"/>
@@ -52,7 +82,6 @@
                 </Style>
             </Grid.Style>
         </Grid>
-   
     </Grid>
 
 </Window>
