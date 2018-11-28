@@ -22,6 +22,7 @@ namespace WpfApp1
     /// </summary>
     public partial class MainWindow : Window
     {
+        bool HasGaze_Email, HasGaze_Notepad;
         public MainWindow()
         {
             InitializeComponent();
@@ -29,8 +30,18 @@ namespace WpfApp1
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            email sec = new email();
-            sec.Show();
+            var grid = e.Source as Grid;
+            if (null == grid) { return; } // if the named "EventSetter" Event from MainWindow.xaml is not called.
+            if (HasGaze_Email)
+            {
+                HasGaze_Email = false; // You're leaving the button.
+            }
+            else
+            {
+                HasGaze_Email = true;        // You're entering the button.
+                email sec = new email(); // Our Gaze changed function will open.
+                sec.Show();
+            }
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
@@ -45,7 +56,17 @@ namespace WpfApp1
 
         private void Button_Click_3(object sender, RoutedEventArgs e)
         {
-            System.Diagnostics.Process.Start("C:\\Windows\\Notepad.exe");
+            var grid = e.Source as Grid;
+            if (null == grid) { return; } // if the named "EventSetter" Event from MainWindow.xaml is not called.
+            if (HasGaze_Email)
+            {
+                HasGaze_Email = false; // You're leaving the button.
+            }
+            else
+            {
+                HasGaze_Email = true;        // You're entering the button.
+                System.Diagnostics.Process.Start("C:\\Windows\\Notepad.exe");
+            }
         }
     }
 
