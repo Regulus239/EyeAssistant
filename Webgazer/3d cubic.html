@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    
+    <script src="../three.js-master/build/three.js"></script>
+    <script src="../three.js-master/examples/js/loaders/GLTFLoader.js"></script>
+    
+    <script src="/Users/valquiria/WebGazer/www/webgazer.js" type="text/javascript" ></script>
+</head>
+
+
+<body>
+<script>
+    var scene = new THREE.Scene();
+    var camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
+        
+    var renderer = new THREE.WebGLRenderer();
+        
+    renderer.setSize( window.innerWidth, window.innerHeight );
+        
+    document.body.appendChild( renderer.domElement );
+        
+    var geometry = new THREE.BoxGeometry(3,3,3);
+        
+    var material = new THREE.MeshBasicMaterial( { color: 11397866 } );
+        
+    var cube = new THREE.Mesh( geometry, material );
+        
+    scene.add( cube );
+    var px=window.innerWidth/2;
+    var py=window.innerHeight/2;
+    camera.position.z = 5;
+    webgazer.setGazeListener(function(data) {
+        if (data == null) {
+        return;
+    }
+        px=data.x;
+        py=data.y;
+    }).begin();
+    var render = function () {
+        requestAnimationFrame( render );
+        if (Math.sqrt((window.innerWidth/2-px)*(window.innerWidth/2-px)+(window.innerHeight/2-py)*(window.innerHeight/2-py))>150){
+        cube.rotation.y += ((window.innerWidth/2-px)/window.innerWidth)/10;
+        cube.rotation.x += ((window.innerHeight/2-py)/window.innerHeight)/10;
+        }
+        renderer.render(scene, camera);
+    };
+    render();
+    
+
+
+    
+</script>
+</body>
+
+
+</html>
