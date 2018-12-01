@@ -23,6 +23,7 @@ namespace WpfApp1
     public partial class MainWindow : Window
     {
         bool HasGaze_Email, HasGaze_Notepad, HasGaze_Youtube, HasGaze_Exit, HasGaze_Browser;
+        FloatingIconWindow floatingWindow;
         public MainWindow()
         {
             InitializeComponent();
@@ -86,6 +87,7 @@ namespace WpfApp1
             else
             {
                 HasGaze_Exit = true;        // You're entering the button.
+                floatingWindow.Close();
                 this.Close();
             }
         }
@@ -101,29 +103,13 @@ namespace WpfApp1
             else
             {
                 HasGaze_Notepad = true;        // You're entering the button.
-                Window1 sec = new Window1(); // Our Gaze changed function will open.
-                sec.Show();
+                System.Diagnostics.Process.Start("C:\\Windows\\Notepad.exe");
             }
-
-
         }
-    }
-
-    public partial class App : Application
-    {
-        private Host _host;
-        private WpfInteractorAgent _wpfInteractorAgent;
-
-        protected override void OnStartup(StartupEventArgs e)
+        
+        public void GetFloatingIconWindow(FloatingIconWindow mainPopup)
         {
-            _host = new Host();
-            _wpfInteractorAgent = _host.InitializeWpfAgent();
-        }
-
-        protected override void OnExit(ExitEventArgs e)
-        {
-            _host.Dispose();
-            base.OnExit(e);
+            FloatingIconWindow floatingWindow = mainPopup;
         }
     }
 }

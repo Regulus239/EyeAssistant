@@ -79,14 +79,6 @@
         </Grid>
         <Grid  tobii:Behaviors.IsGazeAware="True" tobii:Behaviors.GazeAwareMode="Delayed" tobii:Behaviors.GazeAwareDelayTime="680"
             HorizontalAlignment="Left" Margin="25,495,0,0" VerticalAlignment="Top" Width="215" Height="175" Background="White" RenderTransformOrigin="0.5,0.5">
-            <Grid.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="0.543"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Grid.RenderTransform>
             <Grid.Style>
                 <Style TargetType="Grid">
                     <!--For some reason this EventSetter MUST come before the rest of the style elements-->
@@ -105,10 +97,6 @@
         <TextBlock HorizontalAlignment="Left" Margin="195,673,0,-29" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="24"/>
         <Grid tobii:Behaviors.IsGazeAware="True" tobii:Behaviors.GazeAwareMode="Delayed" tobii:Behaviors.GazeAwareDelayTime="680"
             HorizontalAlignment="Left" Height="130" Margin="750,515,0,0" VerticalAlignment="Top" Width="170">
-            <Grid.RowDefinitions>
-                <RowDefinition/>
-                <RowDefinition Height="0*"/>
-            </Grid.RowDefinitions>
             <Grid.Style>
                 <Style TargetType="Grid">
                     <!--For some reason this EventSetter MUST come before the rest of the style elements-->
