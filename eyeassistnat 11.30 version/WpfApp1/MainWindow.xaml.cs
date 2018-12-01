@@ -23,7 +23,7 @@ namespace WpfApp1
     public partial class MainWindow : Window
     {
         bool HasGaze_Email, HasGaze_Notepad, HasGaze_Youtube, HasGaze_Exit, HasGaze_Browser;
-        FloatingIconWindow floatingWindow;
+        private FloatingIconWindow floatingWindow;
         public MainWindow()
         {
             InitializeComponent();
@@ -109,7 +109,7 @@ namespace WpfApp1
         
         public void GetFloatingIconWindow(FloatingIconWindow mainPopup)
         {
-            FloatingIconWindow floatingWindow = mainPopup;
+            floatingWindow = mainPopup;
         }
     }
 }
