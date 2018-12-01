@@ -12,14 +12,18 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Forms;
+using System.Drawing;
 using Tobii.Interaction;
 using Tobii.Interaction.Wpf;
+using System.ComponentModel;
 
 namespace WpfApp1
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
+    /// C:\Users\jsnea\source\repos\EyeAssistant\eyeassistnat 11.3\border_48.ico
     public partial class MainWindow : Window
     {
         bool HasGaze_Email, HasGaze_Notepad, HasGaze_Youtube, HasGaze_Exit;
@@ -88,23 +92,9 @@ namespace WpfApp1
                 System.Diagnostics.Process.Start("C:\\Windows\\Notepad.exe");
             }
         }
+
+
+
     }
 
-    public partial class App : Application
-    {
-        private Host _host;
-        private WpfInteractorAgent _wpfInteractorAgent;
-
-        protected override void OnStartup(StartupEventArgs e)
-        {
-            _host = new Host();
-            _wpfInteractorAgent = _host.InitializeWpfAgent();
-        }
-
-        protected override void OnExit(ExitEventArgs e)
-        {
-            _host.Dispose();
-            base.OnExit(e);
-        }
-    }
 }

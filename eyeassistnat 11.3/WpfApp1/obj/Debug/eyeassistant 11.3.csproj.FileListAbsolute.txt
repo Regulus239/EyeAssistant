@@ -21,3 +21,5 @@ C:\Users\jsnea\source\repos\EyeAssistant\eyeassistnat 11.3\WpfApp1\obj\Debug\eye
 C:\Users\jsnea\source\repos\EyeAssistant\eyeassistnat 11.3\WpfApp1\obj\Debug\eyeassistant 11.3.csproj.CopyComplete
 C:\Users\jsnea\source\repos\EyeAssistant\eyeassistnat 11.3\WpfApp1\obj\Debug\WpfApp1.exe
 C:\Users\jsnea\source\repos\EyeAssistant\eyeassistnat 11.3\WpfApp1\obj\Debug\WpfApp1.pdb
+C:\Users\jsnea\source\repos\EyeAssistant\eyeassistnat 11.3\WpfApp1\obj\Debug\Window1.g.cs
+C:\Users\jsnea\source\repos\EyeAssistant\eyeassistnat 11.3\WpfApp1\obj\Debug\Window1.baml

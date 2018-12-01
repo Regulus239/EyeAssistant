@@ -28,7 +28,8 @@
                     <Setter Property="Background" Value="Transparent" />
                     <Style.Triggers>
                         <Trigger Property="tobii:Behaviors.HasGaze" Value="True">
-                            <Setter Property="Background" Value="Yellow" /> <!-- Color doesn't really matter here because button covers it.-->
+                            <Setter Property="Background" Value="Yellow" />
+                            <!-- Color doesn't really matter here because button covers it.-->
                         </Trigger>
                     </Style.Triggers>
                 </Style>
