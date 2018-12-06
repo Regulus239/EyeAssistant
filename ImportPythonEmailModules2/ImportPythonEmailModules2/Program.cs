@@ -68,10 +68,16 @@ namespace ImportPythonEmailModules
                 try
                 {
                     Console.WriteLine(message.Id);
-                    string encodedString = service.Users.Messages.Get("me", message.Id).Execute().Payload.Body.Data;
-                    byte[] data = Convert.FromBase64String(encodedString);
-                    string decodedString = Encoding.UTF8.GetString(data);
-                    Console.WriteLine(decodedString);
+                    IList<MessagePartHeader> headers = service.Users.Messages.Get("me", message.Id).Execute().Payload.Headers;
+                    foreach (var header in headers)
+                    {
+                        Console.WriteLine(header.Name);
+                        Console.WriteLine("");
+                        Console.WriteLine(header.Value);
+                        Console.WriteLine("");
+                    }
+                    Console.WriteLine();
+                    break;
                 }
                 catch { }
             }
