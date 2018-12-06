@@ -64,7 +64,9 @@ namespace WpfApp1
             }
 
             List<Dictonary<string, string>> GetAndStoreMessageData(List<string> messageList)
-            {// Function Needs more work
+            {
+                Dictionary<string, string> emailDict;
+                List<Dictionary<string, string>> emailDictList;
                 foreach (var message in messageList)
                 {
                     try
@@ -72,10 +74,20 @@ namespace WpfApp1
                         string encodedString = service.Users.Messages.Get("me", message.Id).Execute().Payload.Body.Data;
                         byte[] data = Convert.FromBase64String(encodedString);
                         string decodedString = Encoding.UTF8.GetString(data);
-                        Console.WriteLine(decodedString);
+                        emailDict.Add("Body", encodedString);
+                        IList<MessagePartHeader> headers = service.Users.Messages.Get("me", message.Id).Execute().Payload.Headers;
+                        foreach (var header in headers)
+                        {
+                            if (header.Name = "Date" || header.Name = "Subject" || header.Name = "From" || header.Name = "To")
+                            {
+                                emailDict.Add(header.Name, header.Value);
+                            }
+                        }
+                        emailDictList.Add(emailDict);
                     }
                     catch { }
                 }
+                return emailDictList;
             }
 
 
