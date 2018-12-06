@@ -24,6 +24,7 @@ namespace ImportPythonEmailModules
 {
     /// <summary> 
     /// Used to show simple C# and Python interprocess communication 
+    /// UPDATE: New Main shows usage of Gmail API from https://developers.google.com/gmail/api/quickstart/dotnet
     /// Author      : Ozcan ILIKHAN 
     /// Created     : 02/26/2015 
     /// Last Update : 04/30/2015 
