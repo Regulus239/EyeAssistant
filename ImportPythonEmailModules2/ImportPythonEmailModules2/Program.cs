@@ -1,8 +1,16 @@
-﻿using System;
-using System.IO;
-using System.Diagnostics;
-using System.Collections;
+﻿using Google.Apis.Auth.OAuth2;
+using Google.Apis.Gmail.v1;
+using Google.Apis.Gmail.v1.Data;
+using Google.Apis.Services;
+using Google.Apis.Util.Store;
+using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
+using System.Linq;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
 // Taken from https://code.msdn.microsoft.com/windowsdesktop/C-and-Python-interprocess-171378ee
 // Altered to fit EyeAssistant by jsneal
 // This module is both roughly commented and roughly designed. The importing from Python and the string manipulation
@@ -22,8 +30,55 @@ namespace ImportPythonEmailModules
     /// </summary> 
     class Program
     {
+        static string[] Scopes = { GmailService.Scope.GmailReadonly };
+        static string ApplicationName = "Gmail API .NET Quickstart";
+
         static void Main(string[] args)
-        {   
+            {
+
+            UserCredential credential;
+
+            using (var stream =
+                new FileStream("C:\\Users\\jsnea\\Desktop\\ec601code\\credentials.json", FileMode.Open, FileAccess.Read))
+            {
+                // The file token.json stores the user's access and refresh tokens, and is created
+                // automatically when the authorization flow completes for the first time.
+                string credPath = "token.json";
+                credential = GoogleWebAuthorizationBroker.AuthorizeAsync(
+                    GoogleClientSecrets.Load(stream).Secrets,
+                    Scopes,
+                    "user",
+                    CancellationToken.None,
+                    new FileDataStore(credPath, true)).Result;
+                Console.WriteLine("Credential file saved to: " + credPath);
+            }
+
+            // Create Gmail API service.
+            var service = new GmailService(new BaseClientService.Initializer()
+            {
+                HttpClientInitializer = credential,
+                ApplicationName = ApplicationName,
+            });
+
+            List<Message> messageList = ListMessages(service, "me");
+
+            foreach (var message in messageList)
+            {
+                try
+                {
+                    Console.WriteLine(message.Id);
+                    string encodedString = service.Users.Messages.Get("me", message.Id).Execute().Payload.Body.Data;
+                    byte[] data = Convert.FromBase64String(encodedString);
+                    string decodedString = Encoding.UTF8.GetString(data);
+                    Console.WriteLine(decodedString);
+                }
+                catch { }
+            }
+
+            Console.ReadKey();
+
+
+            /*
             // Proof that the function works->Build ImportPythonEmailModules2:
             List<Dictionary<string, string>> emailList = new List<Dictionary<string, string>>();
             string pythonEmailString;
@@ -38,9 +93,34 @@ namespace ImportPythonEmailModules
             Console.WriteLine(emailList[5]["Subject"]);
             Console.WriteLine(emailList[5]["Content"]);
             Console.ReadKey();
+            */
         }
 
-       static List<Dictionary<string, string>> createListOfEmailDicts(string[] unfixedEmailArray)
+        public static List<Message> ListMessages(GmailService service, String userId)
+        {
+            List<Message> result = new List<Message>();
+            UsersResource.MessagesResource.ListRequest request = service.Users.Messages.List(userId);
+            
+
+            do
+            {
+                try
+                {
+                    ListMessagesResponse response = request.Execute();
+                    result.AddRange(response.Messages);
+                    request.PageToken = response.NextPageToken;
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("An error occurred: " + e.Message);
+                }
+            } while (!String.IsNullOrEmpty(request.PageToken));
+
+            return result;
+        }
+
+
+        static List<Dictionary<string, string>> createListOfEmailDicts(string[] unfixedEmailArray)
         {
             char[] dictBrackets = { '{', '}' }; // For getting rid of Python dictionary brackets
             char[] singleQuote = { '\'' }; // for getting rid of Python dictionary keys
@@ -147,7 +227,6 @@ namespace ImportPythonEmailModules
             returnStrs = fixedStdOutString.Split(endOfDictChars, StringSplitOptions.None); // getting rid of Python dictionary brackets
             return returnStrs;
         }
-
 
     }
 }
