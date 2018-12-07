@@ -89,9 +89,6 @@ namespace WpfApp1
                 }
                 return emailDictList;
             }
-
-
-
         }
     }
 }

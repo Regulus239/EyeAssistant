@@ -71,3 +71,19 @@ C:\Users\jsnea\source\repos\EyeAssistant\eyeassistnat 11.30 version\WpfApp1\obj\
 C:\Users\jsnea\source\repos\EyeAssistant\eyeassistnat 11.30 version\WpfApp1\obj\Debug\eyeassistant 11.3.csproj.GenerateResource.cache
 C:\Users\jsnea\source\repos\EyeAssistant\eyeassistnat 11.30 version\WpfApp1\obj\Debug\eyeassistant 11.3.csproj.CoreCompileInputs.cache
 C:\Users\jsnea\source\repos\EyeAssistant\eyeassistnat 11.30 version\WpfApp1\obj\Debug\eyeassistant 11.3.csproj.CopyComplete
+C:\Users\jsnea\source\repos\EyeAssistant\eyeassistnat 11.30 version\WpfApp1\bin\Debug\Google.Apis.Auth.dll
+C:\Users\jsnea\source\repos\EyeAssistant\eyeassistnat 11.30 version\WpfApp1\bin\Debug\Google.Apis.Auth.PlatformServices.dll
+C:\Users\jsnea\source\repos\EyeAssistant\eyeassistnat 11.30 version\WpfApp1\bin\Debug\Google.Apis.Core.dll
+C:\Users\jsnea\source\repos\EyeAssistant\eyeassistnat 11.30 version\WpfApp1\bin\Debug\Google.Apis.dll
+C:\Users\jsnea\source\repos\EyeAssistant\eyeassistnat 11.30 version\WpfApp1\bin\Debug\Google.Apis.Gmail.v1.dll
+C:\Users\jsnea\source\repos\EyeAssistant\eyeassistnat 11.30 version\WpfApp1\bin\Debug\Google.Apis.PlatformServices.dll
+C:\Users\jsnea\source\repos\EyeAssistant\eyeassistnat 11.30 version\WpfApp1\bin\Debug\Newtonsoft.Json.dll
+C:\Users\jsnea\source\repos\EyeAssistant\eyeassistnat 11.30 version\WpfApp1\bin\Debug\Google.Apis.pdb
+C:\Users\jsnea\source\repos\EyeAssistant\eyeassistnat 11.30 version\WpfApp1\bin\Debug\Google.Apis.xml
+C:\Users\jsnea\source\repos\EyeAssistant\eyeassistnat 11.30 version\WpfApp1\bin\Debug\Google.Apis.Auth.pdb
+C:\Users\jsnea\source\repos\EyeAssistant\eyeassistnat 11.30 version\WpfApp1\bin\Debug\Google.Apis.Auth.xml
+C:\Users\jsnea\source\repos\EyeAssistant\eyeassistnat 11.30 version\WpfApp1\bin\Debug\Google.Apis.Core.pdb
+C:\Users\jsnea\source\repos\EyeAssistant\eyeassistnat 11.30 version\WpfApp1\bin\Debug\Google.Apis.Core.xml
+C:\Users\jsnea\source\repos\EyeAssistant\eyeassistnat 11.30 version\WpfApp1\bin\Debug\Google.Apis.Gmail.v1.pdb
+C:\Users\jsnea\source\repos\EyeAssistant\eyeassistnat 11.30 version\WpfApp1\bin\Debug\Google.Apis.Gmail.v1.xml
+C:\Users\jsnea\source\repos\EyeAssistant\eyeassistnat 11.30 version\WpfApp1\bin\Debug\Newtonsoft.Json.xml
