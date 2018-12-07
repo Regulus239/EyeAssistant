@@ -33,11 +33,13 @@ namespace WpfApp1
         int emailIndex;
         WpfApp1.GmailAccess gmail;
         bool HasGaze_Exit;
+        List<Dictionary<string, string>> emailDictList;
         public email()
         {
             InitializeComponent();
             emailIndex = 0;
             gmail = new GmailAccess();
+            emailDictList = gmail.emailDictList;
             Console.WriteLine(gmail.emailDictList.Count);
         }
 
@@ -56,7 +58,7 @@ namespace WpfApp1
             }
         }
 
-        private void Next_Click(object sender, RoutedEventArgs e)
+        private void Next_Email(object sender, RoutedEventArgs e)
         {
             var grid = e.Source as Grid;
             if (null == grid) { return; } // if the named "EventSetter" Event from MainWindow.xaml is not called.
@@ -68,11 +70,14 @@ namespace WpfApp1
             {
                 HasGaze_Exit = true;        // You're entering the button.
                 emailIndex++;
+                if (emailIndex > gmail.emailDictList.Count - 1) emailIndex = 0;
                 subjectBox.Text = gmail.emailDictList[emailIndex]["Subject"];
+                fromBox.Text = gmail.emailDictList[emailIndex]["From"];
+                dateBox.Text = gmail.emailDictList[emailIndex]["Date"];
             }
         }
 
-        private void Prev_Click(object sender, RoutedEventArgs e)
+        private void Prev_Email(object sender, RoutedEventArgs e)
         {
             var grid = e.Source as Grid;
             if (null == grid) { return; } // if the named "EventSetter" Event from MainWindow.xaml is not called.
@@ -84,12 +89,15 @@ namespace WpfApp1
             {
                 HasGaze_Exit = true;        // You're entering the button.
                 emailIndex--;
+                if (emailIndex < 0) emailIndex = gmail.emailDictList.Count - 1;
                 subjectBox.Text = gmail.emailDictList[emailIndex]["Subject"];
+                fromBox.Text = gmail.emailDictList[emailIndex]["From"];
+                dateBox.Text = gmail.emailDictList[emailIndex]["Date"];
             }
         }
     }
 
-    public class GmailAccess
+    public partial class GmailAccess
     {
         static string[] Scopes = { GmailService.Scope.GmailReadonly };
         static string ApplicationName = "Gmail API .NET Quickstart";
@@ -145,6 +153,9 @@ namespace WpfApp1
                     {
                         if (header.Name == "Date" || header.Name == "Subject" || header.Name == "From" || header.Name == "To")
                         {
+                            Console.WriteLine("header.Name");
+                            Console.WriteLine(header.Name);
+                            Console.WriteLine("header.Value");
                             Console.WriteLine(header.Value);
                             emailDict.Add(header.Name, header.Value);
                         }
