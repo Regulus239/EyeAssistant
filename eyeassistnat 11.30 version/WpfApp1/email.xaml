@@ -6,7 +6,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
-        Title="email" Height="450" Width="800">
+        Title="email" Height="450" Width="800" WindowStartupLocation="CenterScreen">
 
     <!--Grid that covers whole MainWindow-->
     <Grid x:Name="emailWindowGrid" HorizontalAlignment="Left" Height="422" Margin="-4,-1,0,-1" VerticalAlignment="Top" Width="795"
@@ -14,8 +14,7 @@
 
         <!--Previous Email-->
         <Grid x:Name="LeftGrid" HorizontalAlignment="Left" Height="128" VerticalAlignment="Top" Width="105" 
-              tobii:Behaviors.IsGazeAware="True" Margin="5,152,0,0" Background="#FFFFFFFF" Grid.RowSpan="5"
-              tobii:Behaviors.GazeAwareMode="Delayed" tobii:Behaviors.GazeAwareDelayTime="200">
+              tobii:Behaviors.IsGazeAware="True" Margin="5,152,0,0" Background="#FFFFFFFF" Grid.RowSpan="5">
             <TextBlock HorizontalAlignment="Left" Margin="5,88,0,15" TextWrapping="Wrap" Width="95" Foreground="Black" FontSize="36"><Run FontSize="24" Text="Previous"/></TextBlock>
             <Image Source="noun_Left_1935512.png" Stretch="Fill"/>
             <Grid.Style>
@@ -27,8 +26,7 @@
 
         <!--Next Email-->
         <Grid x:Name="RightGrid" HorizontalAlignment="Left" Height="153" Margin="678,142,0,0" 
-              VerticalAlignment="Top" Width="102" tobii:Behaviors.IsGazeAware="True" Background="White" 
-              tobii:Behaviors.GazeAwareMode="Delayed" tobii:Behaviors.GazeAwareDelayTime="200">
+              VerticalAlignment="Top" Width="102" tobii:Behaviors.IsGazeAware="True" Background="White">
             <TextBlock Margin="-1,104,-2.6,23" TextWrapping="Wrap" Text="Next" Width="106" FontSize="24" Foreground="Black" TextAlignment="Center" HorizontalAlignment="Center" Grid.ColumnSpan="3"/>
             <Image Source="noun_right_1701594.png" Stretch="Fill"/>
             <Grid.Style>

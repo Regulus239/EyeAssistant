@@ -18,7 +18,7 @@
     - John Neal
     -->
     <Grid x:Name="MainWindowGrid" HorizontalAlignment="Left" Height="676" Margin="-20,5,-38.4,0" VerticalAlignment="Top" Width="980">
-        <Grid x:Name="email" tobii:Behaviors.IsGazeAware="True" tobii:Behaviors.GazeAwareMode="Delayed" tobii:Behaviors.GazeAwareDelayTime="400"
+        <Grid x:Name="email" tobii:Behaviors.IsGazeAware="True" tobii:Behaviors.GazeAwareMode="Delayed" tobii:Behaviors.GazeAwareDelayTime="200"
               HorizontalAlignment="Left" Margin="275,485,0,0" VerticalAlignment="Top" Width="200" Height="180" Background="White">
             <Grid.RowDefinitions>
                 <RowDefinition Height="14*"/>
@@ -40,7 +40,7 @@
                 </Style>
             </Grid.Style>
         </Grid>
-        <Grid tobii:Behaviors.IsGazeAware="True" tobii:Behaviors.GazeAwareMode="Delayed" tobii:Behaviors.GazeAwareDelayTime="400"
+        <Grid tobii:Behaviors.IsGazeAware="True" tobii:Behaviors.GazeAwareMode="Delayed" tobii:Behaviors.GazeAwareDelayTime="200"
             HorizontalAlignment="Left" Margin="505,496,0,0" VerticalAlignment="Top" Width="195" Height="174" Background="White">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="2*"/>
@@ -61,7 +61,7 @@
                 </Style>
             </Grid.Style>
         </Grid>
-        <Grid  tobii:Behaviors.IsGazeAware="True" tobii:Behaviors.GazeAwareMode="Delayed" tobii:Behaviors.GazeAwareDelayTime="400"
+        <Grid  tobii:Behaviors.IsGazeAware="True" tobii:Behaviors.GazeAwareMode="Delayed" tobii:Behaviors.GazeAwareDelayTime="200"
             HorizontalAlignment="Left" Margin="33,52,0,0" VerticalAlignment="Top" Width="52" Height="53" Background="White">
             <Image Margin="-3,8,0,2" Source="noun_Quitting_960912 (1).png" Stretch="Fill"/>
             <Grid.Style>
@@ -77,7 +77,7 @@
                 </Style>
             </Grid.Style>
         </Grid>
-        <Grid  tobii:Behaviors.IsGazeAware="True" tobii:Behaviors.GazeAwareMode="Delayed" tobii:Behaviors.GazeAwareDelayTime="400"
+        <Grid  tobii:Behaviors.IsGazeAware="True" tobii:Behaviors.GazeAwareMode="Delayed" tobii:Behaviors.GazeAwareDelayTime="200"
             HorizontalAlignment="Left" Margin="25,495,0,0" VerticalAlignment="Top" Width="215" Height="175" Background="White" RenderTransformOrigin="0.5,0.5">
             <Grid.Style>
                 <Style TargetType="Grid">
@@ -95,7 +95,7 @@
             <TextBlock HorizontalAlignment="Left" Margin="36,143,0,0" TextWrapping="Wrap" Text="Notepad" VerticalAlignment="Top" FontSize="24"/>
         </Grid>
         <TextBlock HorizontalAlignment="Left" Margin="195,673,0,-29" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="24"/>
-        <Grid tobii:Behaviors.IsGazeAware="True" tobii:Behaviors.GazeAwareMode="Delayed" tobii:Behaviors.GazeAwareDelayTime="400"
+        <Grid tobii:Behaviors.IsGazeAware="True" tobii:Behaviors.GazeAwareMode="Delayed" tobii:Behaviors.GazeAwareDelayTime="200"
             HorizontalAlignment="Left" Height="130" Margin="750,515,0,0" VerticalAlignment="Top" Width="170">
             <Grid.Style>
                 <Style TargetType="Grid">

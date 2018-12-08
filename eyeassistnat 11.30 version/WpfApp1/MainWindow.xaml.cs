@@ -89,7 +89,7 @@ namespace WpfApp1
             {
                 HasGaze_Exit = true;        // You're entering the button.
                 floatingWindow.Close();
-                sec.Close();
+                if (sec != null) sec.Close();
                 this.Close();
             }
         }
