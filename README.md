@@ -55,3 +55,20 @@ npm install
 grunt
 
 more detail should be found on github: https://github.com/brownhci/WebGazer
+
+How to run the Example HTML files
+==
+
+Within the /www directory there are two example HTML files:
+
+calibration.html: This example includes additional user feedback, such as a 9-point calibration sequence, accuracy measurements and an informative help module.
+collision.html: This example contains a game where the user can move an orange ball with their eyes, which in turn collides with blue balls.
+To run the example files as a server:
+```
+# Clone the repository and download NodeJS using the steps listed above
+# Move into the www directory and download the additional dependencies
+cd www
+npm install
+# Run the webpage index.html as a server
+browser-sync start --server --files "*"
+```
