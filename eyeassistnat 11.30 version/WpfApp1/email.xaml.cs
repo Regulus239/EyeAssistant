@@ -34,6 +34,7 @@ namespace WpfApp1
         WpfApp1.GmailAccess gmail;
         bool HasGaze_Exit;
         List<Dictionary<string, string>> emailDictList;
+        particularEmailWindow emailWindow;
         public email()
         {
             InitializeComponent();
@@ -41,6 +42,12 @@ namespace WpfApp1
             gmail = new GmailAccess();
             emailDictList = gmail.emailDictList;
             Console.WriteLine(gmail.emailDictList.Count);
+        }
+
+        public particularEmailWindow GetEmailWindow()
+        {
+            if (emailWindow != null) return emailWindow;
+            else return null;
         }
 
         private void Exit_Click(object sender, RoutedEventArgs e)
@@ -93,6 +100,23 @@ namespace WpfApp1
                 subjectBox.Text = gmail.emailDictList[emailIndex]["Subject"];
                 fromBox.Text = gmail.emailDictList[emailIndex]["From"];
                 dateBox.Text = gmail.emailDictList[emailIndex]["Date"];
+            }
+        }
+
+        private void Open_Email(object sender, RoutedEventArgs e)
+        {
+            var grid = e.Source as Grid;
+            if (null == grid) { return; } // if the named "EventSetter" Event from MainWindow.xaml is not called.
+            if (HasGaze_Exit)
+            {
+                HasGaze_Exit = false; // You're leaving the button.
+            }
+            else
+            {
+                HasGaze_Exit = true;        // You're entering the button.
+                emailWindow = new particularEmailWindow();
+                emailWindow.SetDictList(emailDictList, emailIndex);
+                emailWindow.Show();
             }
         }
     }

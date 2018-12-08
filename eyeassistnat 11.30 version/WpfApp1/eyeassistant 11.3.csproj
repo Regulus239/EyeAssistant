@@ -90,8 +90,8 @@
     <Compile Include="FloatingWindow.xaml.cs">
       <DependentUpon>FloatingWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Youtube.xaml.cs">
-      <DependentUpon>Youtube.xaml</DependentUpon>
+    <Compile Include="particularEmailWindow.xaml.cs">
+      <DependentUpon>particularEmailWindow.xaml</DependentUpon>
     </Compile>
     <Page Include="email.xaml">
       <SubType>Designer</SubType>
@@ -113,7 +113,7 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Youtube.xaml">
+    <Page Include="particularEmailWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

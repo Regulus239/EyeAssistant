@@ -1,0 +1,33 @@
+﻿<Window x:Class="WpfApp1.particularEmailWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:tobii="clr-namespace:Tobii.Interaction.Wpf;assembly=Tobii.Interaction.Net"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Title="particularEmailWindow" Height="450" Width="800" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Date Recieved:" VerticalAlignment="Top" Margin="26,40,0,0" FontWeight="Bold"/>
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="From:" VerticalAlignment="Top" Margin="74,60,0,0" FontWeight="Bold"/>
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="To:" VerticalAlignment="Top" Margin="88,78,0,0" FontWeight="Bold"/>
+        <TextBlock Name="bodyTbox" HorizontalAlignment="Left" Margin="112,117,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="224" Width="576"/>
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Subject:" VerticalAlignment="Top" Margin="62,96,0,0" FontWeight="Bold"/>
+        <TextBlock Name="dateRecievedTbox" HorizontalAlignment="Left" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Margin="112,40,0,0"/>
+        <TextBlock Name="fromTbox" HorizontalAlignment="Left" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Margin="112,60,0,0"/>
+        <TextBlock Name="toTbox" HorizontalAlignment="Left" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Margin="112,78,0,0"/>
+        <TextBlock Name="subjectTbox" HorizontalAlignment="Left" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Margin="112,96,0,0"/>
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Body:" VerticalAlignment="Top" Margin="72,118,0,0" FontWeight="Bold"/>
+        <Grid Name="ExitEmail"
+            tobii:Behaviors.IsGazeAware="True" tobii:Behaviors.GazeAwareMode="Delayed" tobii:Behaviors.GazeAwareDelayTime="400"
+            HorizontalAlignment="Left" Height="45" Margin="726,10,0,0" VerticalAlignment="Top" Width="55">
+            <Image Source="noun_Quitting_960912 (1).png" Stretch="Fill" Margin="0,6,0,0"/>
+            <Grid.Style>
+                <Style>
+                    <EventSetter Event="tobii:Behaviors.HasGazeChanged" Handler="Exit_Click"/>
+                </Style>
+            </Grid.Style>
+        </Grid>
+        
+    </Grid>
+</Window>

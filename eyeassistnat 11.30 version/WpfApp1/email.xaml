@@ -40,6 +40,11 @@
         <Grid x:Name="TopGrid" HorizontalAlignment="Left" Height="98" Margin="304,-3,0,0" VerticalAlignment="Top" 
               Width="141" tobii:Behaviors.IsGazeAware="True" Background="White"
               tobii:Behaviors.GazeAwareMode="Delayed" tobii:Behaviors.GazeAwareDelayTime="200">
+            <Grid.Style>
+                <Style>
+                    <EventSetter Event="tobii:Behaviors.HasGazeChanged" Handler="Open_Email"/>
+                </Style>
+            </Grid.Style>
             <TextBlock HorizontalAlignment="Center" Margin="29,61,42,6" TextWrapping="Wrap" Text="Open" Width="70" Foreground="#FF080000" FontSize="24" TextAlignment="Center"/>
             <Image Margin="19,9,32,26" Source="noun_View_2040082.png" Stretch="Fill"/>
         </Grid>

@@ -50,7 +50,6 @@ C:\Users\jsnea\source\repos\EyeAssistant\eyeassistnat 11.30 version\WpfApp1\obj\
 C:\Users\jsnea\source\repos\EyeAssistant\eyeassistnat 11.30 version\WpfApp1\obj\Debug\email.g.cs
 C:\Users\jsnea\source\repos\EyeAssistant\eyeassistnat 11.30 version\WpfApp1\obj\Debug\FloatingWindow.g.cs
 C:\Users\jsnea\source\repos\EyeAssistant\eyeassistnat 11.30 version\WpfApp1\obj\Debug\MainWindow.g.cs
-C:\Users\jsnea\source\repos\EyeAssistant\eyeassistnat 11.30 version\WpfApp1\obj\Debug\Youtube.g.cs
 C:\Users\jsnea\source\repos\EyeAssistant\eyeassistnat 11.30 version\WpfApp1\obj\Debug\App.g.cs
 C:\Users\jsnea\source\repos\EyeAssistant\eyeassistnat 11.30 version\WpfApp1\obj\Debug\WpfApp1_MarkupCompile.cache
 C:\Users\jsnea\source\repos\EyeAssistant\eyeassistnat 11.30 version\WpfApp1\obj\Debug\WpfApp1_MarkupCompile.lref
@@ -65,7 +64,6 @@ C:\Users\jsnea\source\repos\EyeAssistant\eyeassistnat 11.30 version\WpfApp1\bin\
 C:\Users\jsnea\source\repos\EyeAssistant\eyeassistnat 11.30 version\WpfApp1\obj\Debug\email.baml
 C:\Users\jsnea\source\repos\EyeAssistant\eyeassistnat 11.30 version\WpfApp1\obj\Debug\FloatingWindow.baml
 C:\Users\jsnea\source\repos\EyeAssistant\eyeassistnat 11.30 version\WpfApp1\obj\Debug\MainWindow.baml
-C:\Users\jsnea\source\repos\EyeAssistant\eyeassistnat 11.30 version\WpfApp1\obj\Debug\Youtube.baml
 C:\Users\jsnea\source\repos\EyeAssistant\eyeassistnat 11.30 version\WpfApp1\obj\Debug\WpfApp1.g.resources
 C:\Users\jsnea\source\repos\EyeAssistant\eyeassistnat 11.30 version\WpfApp1\obj\Debug\WpfApp1.Properties.Resources.resources
 C:\Users\jsnea\source\repos\EyeAssistant\eyeassistnat 11.30 version\WpfApp1\obj\Debug\eyeassistant 11.3.csproj.GenerateResource.cache
@@ -87,3 +85,5 @@ C:\Users\jsnea\source\repos\EyeAssistant\eyeassistnat 11.30 version\WpfApp1\bin\
 C:\Users\jsnea\source\repos\EyeAssistant\eyeassistnat 11.30 version\WpfApp1\bin\Debug\Google.Apis.Gmail.v1.pdb
 C:\Users\jsnea\source\repos\EyeAssistant\eyeassistnat 11.30 version\WpfApp1\bin\Debug\Google.Apis.Gmail.v1.xml
 C:\Users\jsnea\source\repos\EyeAssistant\eyeassistnat 11.30 version\WpfApp1\bin\Debug\Newtonsoft.Json.xml
+C:\Users\jsnea\source\repos\EyeAssistant\eyeassistnat 11.30 version\WpfApp1\obj\Debug\particularEmailWindow.g.cs
+C:\Users\jsnea\source\repos\EyeAssistant\eyeassistnat 11.30 version\WpfApp1\obj\Debug\particularEmailWindow.baml
