@@ -34,10 +34,5 @@ namespace WpfApp1
             if (null == grid) { return; } // if the named "EventSetter" Event from MainWindow.xaml is not called.
             mainWindow.Activate();  // Activate() brings the Window to the foreground. So in this case, it brings our MainWindow to the foreground.
         }
-
-        private void Window_LocationChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }

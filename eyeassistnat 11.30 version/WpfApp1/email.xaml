@@ -14,10 +14,10 @@
 
         <!--Previous Email-->
         <Grid x:Name="LeftGrid" HorizontalAlignment="Left" Height="128" VerticalAlignment="Top" Width="105" 
-              tobii:Behaviors.IsGazeAware="True" Margin="5,152,0,0" Background="#FFFDFAFA" Grid.RowSpan="5"
+              tobii:Behaviors.IsGazeAware="True" Margin="5,152,0,0" Background="#FFFFFFFF" Grid.RowSpan="5"
               tobii:Behaviors.GazeAwareMode="Delayed" tobii:Behaviors.GazeAwareDelayTime="200">
-            <TextBlock HorizontalAlignment="Left" Margin="5,88,0,15" TextWrapping="Wrap" Width="95" Foreground="Black" FontSize="36"><Run FontSize="24" Text="Previous"/><LineBreak/><Run Text=" "/><LineBreak/><Run/><LineBreak/><Run/><LineBreak/><Run/><LineBreak/><Run/></TextBlock>
-            <Image Margin="-15,-10,24,18" Source="noun_Left_1935512.png" Stretch="Fill"/>
+            <TextBlock HorizontalAlignment="Left" Margin="5,88,0,15" TextWrapping="Wrap" Width="95" Foreground="Black" FontSize="36"><Run FontSize="24" Text="Previous"/></TextBlock>
+            <Image Source="noun_Left_1935512.png" Stretch="Fill"/>
             <Grid.Style>
                 <Style>
                     <EventSetter Event="tobii:Behaviors.HasGazeChanged" Handler="Prev_Email" />
@@ -30,7 +30,7 @@
               VerticalAlignment="Top" Width="102" tobii:Behaviors.IsGazeAware="True" Background="White" 
               tobii:Behaviors.GazeAwareMode="Delayed" tobii:Behaviors.GazeAwareDelayTime="200">
             <TextBlock Margin="-1,104,-2.6,23" TextWrapping="Wrap" Text="Next" Width="106" FontSize="24" Foreground="Black" TextAlignment="Center" HorizontalAlignment="Center" Grid.ColumnSpan="3"/>
-            <Image Margin="2,-7,-19.6,25" Source="noun_right_1701594.png" Stretch="Fill" Grid.ColumnSpan="3"/>
+            <Image Source="noun_right_1701594.png" Stretch="Fill"/>
             <Grid.Style>
                 <Style>
                     <EventSetter Event="tobii:Behaviors.HasGazeChanged" Handler="Next_Email" />
@@ -55,7 +55,7 @@
 
         <!--Exit program-->
         <Grid Name="Exit"
-            tobii:Behaviors.IsGazeAware="True" tobii:Behaviors.GazeAwareMode="Delayed" tobii:Behaviors.GazeAwareDelayTime="680"
+            tobii:Behaviors.IsGazeAware="True" tobii:Behaviors.GazeAwareMode="Delayed" tobii:Behaviors.GazeAwareDelayTime="400"
             HorizontalAlignment="Left" Height="45" Margin="5,10,0,0" VerticalAlignment="Top" Width="55">
             <Image Source="noun_Quitting_960912 (1).png" Stretch="Fill" Margin="0,1,0,5"/>
             <Grid.Style>

@@ -24,6 +24,7 @@ namespace WpfApp1
     {
         bool HasGaze_Email, HasGaze_Notepad, HasGaze_Youtube, HasGaze_Exit, HasGaze_Browser;
         private FloatingIconWindow floatingWindow;
+        public email sec;
         public MainWindow()
         {
             InitializeComponent();
@@ -40,8 +41,8 @@ namespace WpfApp1
             else
             {
                 HasGaze_Email = true;        // You're entering the button.
-                email sec = new email(); // Our Gaze changed function will open.
-                sec.Show();
+                this.sec = new email(); // Our Gaze changed function will open.
+                this.sec.Show();
             }
         }
 
@@ -88,6 +89,7 @@ namespace WpfApp1
             {
                 HasGaze_Exit = true;        // You're entering the button.
                 floatingWindow.Close();
+                sec.Close();
                 this.Close();
             }
         }

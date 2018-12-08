@@ -6,7 +6,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
-        Title="MainWindow" Height="714.2" Width="928.4">
+        Title="MainWindow" Height="714.2" Width="928.4" WindowStartupLocation="CenterScreen">
     <!-- The key to fixing the previous issue with both grids being activated if you looked at the left grid was to make a single overall grid, which I have named
     "MainWindowGrid." Grids can have multiple children, while windows can only have a single child. Before we were trying to insert two Grids into a Window, which is illegal because
     then we would be giving the parent Window two children, the two Grids. I learned this via StackOverflow by Google searching the error message.
@@ -18,7 +18,7 @@
     - John Neal
     -->
     <Grid x:Name="MainWindowGrid" HorizontalAlignment="Left" Height="676" Margin="-20,5,-38.4,0" VerticalAlignment="Top" Width="980">
-        <Grid x:Name="email" tobii:Behaviors.IsGazeAware="True" tobii:Behaviors.GazeAwareMode="Delayed" tobii:Behaviors.GazeAwareDelayTime="680"
+        <Grid x:Name="email" tobii:Behaviors.IsGazeAware="True" tobii:Behaviors.GazeAwareMode="Delayed" tobii:Behaviors.GazeAwareDelayTime="400"
               HorizontalAlignment="Left" Margin="275,485,0,0" VerticalAlignment="Top" Width="200" Height="180" Background="White">
             <Grid.RowDefinitions>
                 <RowDefinition Height="14*"/>
@@ -40,7 +40,7 @@
                 </Style>
             </Grid.Style>
         </Grid>
-        <Grid tobii:Behaviors.IsGazeAware="True" tobii:Behaviors.GazeAwareMode="Delayed" tobii:Behaviors.GazeAwareDelayTime="680"
+        <Grid tobii:Behaviors.IsGazeAware="True" tobii:Behaviors.GazeAwareMode="Delayed" tobii:Behaviors.GazeAwareDelayTime="400"
             HorizontalAlignment="Left" Margin="505,496,0,0" VerticalAlignment="Top" Width="195" Height="174" Background="White">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="2*"/>
@@ -61,7 +61,7 @@
                 </Style>
             </Grid.Style>
         </Grid>
-        <Grid  tobii:Behaviors.IsGazeAware="True" tobii:Behaviors.GazeAwareMode="Delayed" tobii:Behaviors.GazeAwareDelayTime="680"
+        <Grid  tobii:Behaviors.IsGazeAware="True" tobii:Behaviors.GazeAwareMode="Delayed" tobii:Behaviors.GazeAwareDelayTime="400"
             HorizontalAlignment="Left" Margin="33,52,0,0" VerticalAlignment="Top" Width="52" Height="53" Background="White">
             <Image Margin="-3,8,0,2" Source="noun_Quitting_960912 (1).png" Stretch="Fill"/>
             <Grid.Style>
@@ -77,7 +77,7 @@
                 </Style>
             </Grid.Style>
         </Grid>
-        <Grid  tobii:Behaviors.IsGazeAware="True" tobii:Behaviors.GazeAwareMode="Delayed" tobii:Behaviors.GazeAwareDelayTime="680"
+        <Grid  tobii:Behaviors.IsGazeAware="True" tobii:Behaviors.GazeAwareMode="Delayed" tobii:Behaviors.GazeAwareDelayTime="400"
             HorizontalAlignment="Left" Margin="25,495,0,0" VerticalAlignment="Top" Width="215" Height="175" Background="White" RenderTransformOrigin="0.5,0.5">
             <Grid.Style>
                 <Style TargetType="Grid">
@@ -95,7 +95,7 @@
             <TextBlock HorizontalAlignment="Left" Margin="36,143,0,0" TextWrapping="Wrap" Text="Notepad" VerticalAlignment="Top" FontSize="24"/>
         </Grid>
         <TextBlock HorizontalAlignment="Left" Margin="195,673,0,-29" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="24"/>
-        <Grid tobii:Behaviors.IsGazeAware="True" tobii:Behaviors.GazeAwareMode="Delayed" tobii:Behaviors.GazeAwareDelayTime="680"
+        <Grid tobii:Behaviors.IsGazeAware="True" tobii:Behaviors.GazeAwareMode="Delayed" tobii:Behaviors.GazeAwareDelayTime="400"
             HorizontalAlignment="Left" Height="130" Margin="750,515,0,0" VerticalAlignment="Top" Width="170">
             <Grid.Style>
                 <Style TargetType="Grid">
