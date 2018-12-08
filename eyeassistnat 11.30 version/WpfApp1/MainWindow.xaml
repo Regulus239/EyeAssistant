@@ -61,7 +61,7 @@
                 </Style>
             </Grid.Style>
         </Grid>
-        <Grid  tobii:Behaviors.IsGazeAware="True" tobii:Behaviors.GazeAwareMode="Delayed" tobii:Behaviors.GazeAwareDelayTime="200"
+        <Grid  tobii:Behaviors.IsGazeAware="True" tobii:Behaviors.GazeAwareMode="Delayed" tobii:Behaviors.GazeAwareDelayTime="680"
             HorizontalAlignment="Left" Margin="33,52,0,0" VerticalAlignment="Top" Width="52" Height="53" Background="White">
             <Image Margin="-3,8,0,2" Source="noun_Quitting_960912 (1).png" Stretch="Fill"/>
             <Grid.Style>
