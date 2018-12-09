@@ -6,16 +6,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
-        Title="FloatingIconWindow" Height="100" Width="100"
-        Background="Black">
-    <!-- FloatingIconwindow does not appear overtop of MainWindow due to Horizontal Alignment-->
+        Title="FloatingIconWindow" Height="53.349" Width="58.2"
+        HorizontalAlignment="Left"
+        VerticalAlignment="Center"
+        Background="White" WindowStyle="None">
     <!--Let's try to change the color of the window and Grid so that they are transparent, but display a fancy icon of our creation. This will look much more sleek than a black window-->
-    <Grid tobii:Behaviors.IsGazeAware="true" Height="100" Width="100" tobii:Behaviors.GazeAwareMode="Delayed" tobii:Behaviors.GazeAwareDelayTime="200" Background="Black">
+    <Grid tobii:Behaviors.IsGazeAware="true" tobii:Behaviors.GazeAwareMode="Delayed" tobii:Behaviors.GazeAwareDelayTime="680" Background="White" Margin="0,0,0.6,-0.6">
         <Grid.Style>
             <Style TargetType="Grid">
                 <!--For some reason this EventSetter MUST come before the rest of the style elements-->
                 <EventSetter Event="tobii:Behaviors.HasGazeChanged" Handler="GetAttention" />
             </Style>
         </Grid.Style>
+        <Image Margin="5,6,5.4,3.6" Source="noun_main_1902023.png" Stretch="Fill"/>
     </Grid>
 </Window>
