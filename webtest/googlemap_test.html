@@ -6,8 +6,8 @@
     <meta charset="utf-8">
     <script src="../webgazer.js" type="text/javascript" ></script>
     <body>
-    <div class="zoomin"></div>
-    <div class="zoomout"></div>
+    <div class="zoomin"><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>zoom in</div>
+    <div class="zoomout"><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>zoomout</div>
     <div id="map_canvas" class="map_canvas"></div>
     
     </body>
@@ -22,6 +22,8 @@
         width:5%;
         height:90%;
         float: left;
+        text-align: center;
+        text-emphasis-color: yellowgreen;
         background:wheat;
       }
 
@@ -206,8 +208,10 @@
   <input type="button" id="show_toggle" value="showPredictionPoint_toggle" onclick="show_toggle()"/>
   <input type="button" id="trace_toggle" value="trace_toggle" onclick="trace_toggle()"/>
   <input type="button" id="zoom_toggle" value="zoom_toggle" onclick="zoom_toggle()"/>
-  
-  <script src="https://maps.googleapis.com/maps/api/js?key=[yourgooglemapkey]&callback=initMap"
+<!--   
+  insert your google map api key -->
+
+  <script src="https://maps.googleapis.com/maps/api/js?key=[yourkey]&callback=initMap&language=en"
     async defer></script>
   </body>
 </html>
