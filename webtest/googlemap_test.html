@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Simple Map</title>
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta charset="utf-8">
+    <script src="../webgazer.js" type="text/javascript" ></script>
+    <body>
+    <div class="zoomin"></div>
+    <div class="zoomout"></div>
+    <div id="map_canvas" class="map_canvas"></div>
+    
+    </body>
+    <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      .map_canvas {
+        height: 90%;
+        width: 90%;
+      }
+      .zoomin{
+        width:5%;
+        height:90%;
+        float: left;
+        background:wheat;
+      }
+
+      .zoomout{
+        width:5%;
+        height:90%;
+        float: right;
+        background:wheat;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      
+    </style>
+  </head>
+  <body>
+    <script>
+      
+      var map;
+      var cur_lat,cur_lng;
+      var zoom;
+      var show=0;
+      var timelapse=50;
+      var zoom_f=0;
+      
+      function initMap(){
+        var mapOptions = {
+        center: new google.maps.LatLng(42.3601, -71.0589),
+        zoom: 15,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+
+        map = new google.maps.Map(document.getElementById("map_canvas"),mapOptions);
+
+        
+      }
+      function moveToLocation(lat, lng){
+        var center = new google.maps.LatLng(lat, lng);
+        map.panTo(center);
+      }
+      var move=0;
+      var px=window.innerWidth/2;
+      var py=window.innerHeight/2;
+      
+      var olddate= new Date().getMilliseconds();
+      olddate-=olddate%timelapse;
+      olddate/=timelapse;
+
+      var linear_step=50;
+      var xPast50 = new Array(linear_step);
+      var yPast50 = new Array(linear_step);
+      var Pastfull = 0;
+      var xavg;
+      var yavg;
+      var xsq_avg;
+      var xyavg;
+      var k;
+      
+      var mouse_x;
+      var mouse_y;
+      var pred_vec_x;
+      var pred_vec_y;
+      var xpos;
+      var ypos;
+
+      var odates= new Date().getSeconds();
+      var dates;
+
+      webgazer.setGazeListener(function(data) {
+        if (data == null) {
+          return;
+        }
+        webgazer.showPredictionPoints(show);
+        px=data.x;
+        py=data.y;
+        cur_lat=map.getCenter().lat();
+        cur_lng=map.getCenter().lng();
+        zoom=map.getZoom();
+
+        
+
+        cur_lng-=Math.pow((window.innerWidth/2-px)/window.innerWidth,3)/2/Math.pow(2,zoom)*256;//*256/window.innerWidth;
+        cur_lat+=Math.pow((window.innerHeight/2-py)/window.innerHeight,3)/2/Math.pow(2,zoom)*256;//*256/window.innerHeight;
+        //console.log(cur_lat,cur_lng);
+        var date= new Date().getMilliseconds();
+        var dates= new Date().getSeconds();
+
+
+        date-=date%timelapse;
+        date/=timelapse;
+        if (move==1 && date!=olddate){
+          moveToLocation(cur_lat,cur_lng);
+          olddate=date;
+        }
+        
+
+
+
+        if (Pastfull<linear_step-1){
+          xPast50[Pastfull]=px;
+          yPast50[Pastfull]=py;
+          ++Pastfull;
+        }
+        else{
+          for (var i=0;i<linear_step-1;++i){
+            xPast50[i]=xPast50[i+1];
+            yPast50[i]=yPast50[i+1];
+          }
+          xPast50[Pastfull]=px;
+          yPast50[Pastfull]=py;
+        }
+
+        xavg=0;
+        yavg=0;
+    
+        xsq_avg=0;
+        xyavg=0;
+        for (var i=0;i<linear_step;++i){
+          xavg+=xPast50[i];
+          yavg+=yPast50[i];
+          xsq_avg+=xPast50[i]*xPast50[i];
+          xyavg+=xPast50[i]*yPast50[i];
+        }
+        xavg/=linear_step;
+        yavg/=linear_step;
+        xsq_avg/=linear_step;
+        xyavg/=linear_step;
+
+
+        if (xavg>mouse_x){
+          xpos=1;
+        }
+        else{
+          xpos=-1;
+        }
+
+        if (yavg>mouse_y){
+          ypos=1;
+        }
+        else{
+          ypos=-1;
+        }
+        k=(xyavg-xavg*yavg)/(xsq_avg-xavg*xavg);
+
+
+        if (Math.abs(xPast50[linear_step-1]-xPast50[0])/window.innerWidth>0.9 && dates!=odates){
+
+          console.log(xPast50[linear_step-1]-xPast50[0]>0);
+          console.log(dates);
+          odates=dates;
+          if(zoom_f==1 && xPast50[linear_step-1]-xPast50[0]>0) {
+            zoom=map.getZoom();
+            zoom--;
+            map.setZoom(zoom);
+          }
+          if(zoom_f==1 && xPast50[linear_step-1]-xPast50[0]<0){
+            zoom=map.getZoom();
+            zoom++;
+            map.setZoom(zoom);
+          }
+
+
+        }
+        //console.log(move);
+      }).begin();
+
+
+      function trace_toggle(){
+        move^=1;
+      }
+      function show_toggle(){
+        show^=1;
+      }
+      function zoom_toggle(){
+        zoom_f^=1;
+      }
+      //moveToLocation(41,108);
+    </script>
+  <input type="button" id="show_toggle" value="showPredictionPoint_toggle" onclick="show_toggle()"/>
+  <input type="button" id="trace_toggle" value="trace_toggle" onclick="trace_toggle()"/>
+  <input type="button" id="zoom_toggle" value="zoom_toggle" onclick="zoom_toggle()"/>
+  
+  <script src="https://maps.googleapis.com/maps/api/js?key=[yourgooglemapkey]&callback=initMap"
+    async defer></script>
+  </body>
+</html>
