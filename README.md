@@ -3,9 +3,22 @@ Introduction of  Eye Tracker program:
 
 * Main frame of webcam: https://webgazer.cs.brown.edu with webgaze (established by Brown University)
 * Demo of tobii eyetracker: https://tobiigaming.com/software/ghost/
-* The usage of Thunderbird and Visualstudio C# Windows Presentation Foundation: About to finish
+* The usage Visualstudio C# Windows Presentation Foundation
 
-## Usage of webgazer:
+## Downloads of webgazer.js
+
+https://github.com/brownhci/WebGazer
+```
+# Ensure NodeJS is downloaded: https://nodejs.org/en/download/
+# Install grunt-cli if not installed (this may require you to use `sudo` or run the console as Administrator)
+npm install -g grunt-cli
+git clone https://github.com/brownhci/WebGazer.git
+npm install
+# Run grunt to build the webgazer.js and webgazer.min.js file in the build directory
+grunt
+```
+
+## Usage of webgazer.js:
 
 WebGazer.js can save and restore the training data between browser sessions by storing data to localstorage. At the heart of WebGazer.js are the tracker and regression modules. The tracker module controls how eyes are detected and the 
 regression module determines how the regression model is learned and how predictions are made based on the eye patches 
@@ -56,8 +69,8 @@ grunt
 
 more detail should be found on github: https://github.com/brownhci/WebGazer
 
-How to run the Example HTML files
-==
+## How to run the Example HTML files
+
 
 Within the /www directory there are two example HTML files:
 
@@ -72,3 +85,14 @@ npm install
 # Run the webpage index.html as a server
 browser-sync start --server --files "*"
 ```
+
+Usage of Google Map Finder
+==
+Run googlemap_test.html on your browser
+
+## Calibration
+Try click on the web for 10 points at each corner while looking at the cursor.
+Activate showing prediction points by clicking showprediction_toggle.
+Activate tracing focusing point by clicking trace_toggle.
+Activate zooming functions by clicking zoom_toggle.
+
