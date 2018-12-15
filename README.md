@@ -5,9 +5,18 @@ Introduction of  Eye Tracker program:
 * Demo of tobii eyetracker: https://tobiigaming.com/software/ghost/
 * The usage Visualstudio C# Windows Presentation Foundation
 
-## Downloads of webgazer.js
 
+
+
+
+Usage of webgazer applications
+==
+
+## Downloads of webgazer.js
+Try download from this github repository
 https://github.com/brownhci/WebGazer
+
+Install options that you can refer to is here:
 ```
 # Ensure NodeJS is downloaded: https://nodejs.org/en/download/
 # Install grunt-cli if not installed (this may require you to use `sudo` or run the console as Administrator)
@@ -60,8 +69,7 @@ npm install
 browser-sync start --server --files "*"
 ```
 
-Usage of webgazer applications
-==
+
 ## Presetting
 Download, install and try the cases of webgazer from https://webgazer.cs.brown.edu locally.
 Put the /webtest/ folder from our library into /webgazer/www/
