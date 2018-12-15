@@ -45,35 +45,9 @@ Pause and Resume
 
 It may be necessary to pause the data collection and predictions of WebGazer.js for performance reasons.
 
-## Util and Params
-
-We provide some useful functions and objects in webgazer.util. The webgazer.params object also contains some useful parameters 
-to tweak to control video fidelity (trades off speed and accuracy) and sample rate for mouse movements.
-
-
-webgazer.util.bound(prediction);
-prediction.x; //now always in the bounds of the viewport
-prediction.y; //now always in the bounds of the viewport
-
-
-download instructions:
-#Ensure NodeJS is downloaded: https://nodejs.org/en/download/
-
-npm install -g grunt-cli
-git clone https://github.com/brownhci/WebGazer.git
-cd WebGazer
-npm install
-
-#Run grunt to build the webgazer.js file in the build directory
-grunt
-
-more detail should be found on github: https://github.com/brownhci/WebGazer
 
 ## How to run the Example HTML files
-
-
 Within the /www directory there are two example HTML files:
-
 calibration.html: This example includes additional user feedback, such as a 9-point calibration sequence, accuracy measurements and an informative help module.
 collision.html: This example contains a game where the user can move an orange ball with their eyes, which in turn collides with blue balls.
 To run the example files as a server:
@@ -86,9 +60,14 @@ npm install
 browser-sync start --server --files "*"
 ```
 
-Usage of Google Map Finder
+Usage of webgazer applications
 ==
-Run googlemap_test.html on your browser
+## Presetting
+Download, install and try the cases of webgazer from https://webgazer.cs.brown.edu locally.
+Put the /webtest/ folder from our library into /webgazer/www/
+
+## Google Map Finder
+Run googlemap_test.html in the folder web test on your browser. Chrome is preferred while safari and firefox cannot run webgazer online examples without a local server.
 
 ## Calibration
 Try click on the web for 10 points at each corner while looking at the cursor.
