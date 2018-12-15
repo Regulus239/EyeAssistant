@@ -6,7 +6,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
-        Title="FloatingIconWindow" Height="53.349" Width="58.2"
+        Title="FloatingIconWindow" Height="99.349" Width="102.95"
         HorizontalAlignment="Left"
         VerticalAlignment="Center"
         Background="White" WindowStyle="None">

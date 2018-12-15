@@ -1,9 +1,8 @@
 Introduction of  Eye Tracker program:
 =
 
-* Main frame of webcam: https://webgazer.cs.brown.edu with webgaze (established by Brown University)
-* Demo of tobii eyetracker: https://tobiigaming.com/software/ghost/
-* The usage of Thunderbird and Visualstudio C# Windows Presentation Foundation: About to finish
+* Part 1: A user interface for Google Maps based on WebGazer.js: https://webgazer.cs.brown.edu (established by Brown University).
+* Part 2: A user interface created using the Tobii Core SDK to create a WPF application to be used with the Tobii EyeTracker 4c.
 
 ## Usage of webgazer:
 
@@ -72,3 +71,25 @@ npm install
 # Run the webpage index.html as a server
 browser-sync start --server --files "*"
 ```
+
+## Usage of Tobii EyeTracker 4C and Core SDK
+
+The Tobii Core SDK can be found here: https://developer.tobii.com/consumer-eye-trackers/core-sdk/
+
+Since the Tobii Eyetracker 4C only runs on Windows currently, you are out of luck (unfortunately) if you try our WPF application on another OS.
+
+We used Microsoft Visual Studio Community 2017 with tghe Tobii Interaction Nuget package (the Tobii Core SDK) to buld a WPF application which prototypes a user interface to work with the Tobii EyeTracker 4c. This UI also integrates the Gmail C# API to show how one's inbox can be scanned using hte EyeTracker.
+
+To run the software, we recommend you download Visual Studio Microsoft 2017. It's free an helpful.
+
+You will need to download the Tobii EyeChip driver and the Tobii Eyetracker software from Tobii's website: https://help.tobii.com/hc/en-us/articles/115003827934-Get-started
+
+To use the Gmail API, read up on how to allow the application access to a Gmail account: https://developers.google.com/gmail/api/quickstart/dotnet 
+
+We recommend not using your personal email for this! Set up a test account, forward it emails that are not information sensitive, and then use these to test our software.
+
+Several lines of code depend on where certain files are stored on your computer. If you see any filepaths in our code, make sure to double check that they match the filepath on your computer. Chances are, they probably don't and you will have to change them.
+
+The icons for our application were borrowed from: https://thenounproject.com/apps/
+
+

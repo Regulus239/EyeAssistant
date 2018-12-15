@@ -6,15 +6,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
-        Title="email" Height="450" Width="800" WindowStartupLocation="CenterScreen">
+        Title="email" Height="645.037" Width="1109.007" WindowStartupLocation="CenterScreen">
 
     <!--Grid that covers whole MainWindow-->
-    <Grid x:Name="emailWindowGrid" HorizontalAlignment="Left" Height="422" Margin="-4,-1,0,-1" VerticalAlignment="Top" Width="795"
+    <Grid x:Name="emailWindowGrid" HorizontalAlignment="Left" Height="616" Margin="-4,-1,0,-1" VerticalAlignment="Top" Width="1103"
           tobii:Behaviors.IsGazeAware="True">
 
         <!--Previous Email-->
         <Grid x:Name="LeftGrid" HorizontalAlignment="Left" Height="128" VerticalAlignment="Top" Width="105" 
-              tobii:Behaviors.IsGazeAware="True" Margin="5,152,0,0" Background="#FFFFFFFF" Grid.RowSpan="5">
+              tobii:Behaviors.IsGazeAware="True" Margin="5,226,0,0" Background="#FFFFFFFF">
             <TextBlock HorizontalAlignment="Left" Margin="5,88,0,15" TextWrapping="Wrap" Width="95" Foreground="Black" FontSize="36"><Run FontSize="24" Text="Previous"/></TextBlock>
             <Image Source="noun_Left_1935512.png" Stretch="Fill"/>
             <Grid.Style>
@@ -25,7 +25,7 @@
         </Grid>
 
         <!--Next Email-->
-        <Grid x:Name="RightGrid" HorizontalAlignment="Left" Height="153" Margin="678,142,0,0" 
+        <Grid x:Name="RightGrid" HorizontalAlignment="Left" Height="153" Margin="954,190,0,0" 
               VerticalAlignment="Top" Width="102" tobii:Behaviors.IsGazeAware="True" Background="White">
             <TextBlock Margin="-1,104,-2.6,23" TextWrapping="Wrap" Text="Next" Width="106" FontSize="24" Foreground="Black" TextAlignment="Center" HorizontalAlignment="Center" Grid.ColumnSpan="3"/>
             <Image Source="noun_right_1701594.png" Stretch="Fill"/>
@@ -37,7 +37,7 @@
         </Grid>
 
         <!--Open Email-->
-        <Grid x:Name="TopGrid" HorizontalAlignment="Left" Height="98" Margin="304,-3,0,0" VerticalAlignment="Top" 
+        <Grid x:Name="TopGrid" HorizontalAlignment="Left" Height="98" Margin="454,-1,0,0" VerticalAlignment="Top" 
               Width="141" tobii:Behaviors.IsGazeAware="True" Background="White"
               tobii:Behaviors.GazeAwareMode="Delayed" tobii:Behaviors.GazeAwareDelayTime="200">
             <Grid.Style>
@@ -71,7 +71,7 @@
         <!--Subject line textbox-->
         <TextBlock Name="subjectBox" Text="" HorizontalAlignment="Center" TextWrapping="Wrap" Margin="281,187,308,169" Height="66" Width="206" IsHyphenationEnabled="True" FontSize="12" TextAlignment="Center" VerticalAlignment="Center" />
         <TextBlock Name="dateBox" Text="" HorizontalAlignment="Center" TextWrapping="Wrap" Margin="115,188,517,169" Height="65" Width="163" IsHyphenationEnabled="True" FontSize="12" TextAlignment="Center" VerticalAlignment="Center" />
-        <TextBlock Name="fromBox" Text="" HorizontalAlignment="Center" TextWrapping="Wrap" Margin="491,187,122,169" Height="66" Width="182" IsHyphenationEnabled="True" FontSize="12" TextAlignment="Center" VerticalAlignment="Center" />
+        <TextBlock Name="fromBox" Text="" HorizontalAlignment="Center" TextWrapping="Wrap" Margin="716,288,205,262" Height="66" Width="182" IsHyphenationEnabled="True" FontSize="12" TextAlignment="Center" VerticalAlignment="Center" />
     </Grid>
 
 </Window>
