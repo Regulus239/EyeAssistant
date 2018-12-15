@@ -92,4 +92,6 @@ Several lines of code depend on where certain files are stored on your computer.
 
 The icons for our application were borrowed from: https://thenounproject.com/apps/
 
+To run: open the EyeAssitant (Tobii) directory and open the "WpfApp1.sln" file in Visual Studio. Make sure you have all the dependencies installed and filepath changes corrected for your computer. Then build the project in Visual Studio.
+
 
